@@ -1,10 +1,12 @@
+ruby '2.4.2'
 source 'https://rubygems.org'
-
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+group :production do
+  gem 'pg', '0.21.0'
 end
 
+gem 'rails_12factor'
+gem 'haml'          
+gem 'haml-rails'    
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
