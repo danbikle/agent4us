@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cclasses/index'
+
   get 'home/index'
   root 'home#index'
   get  'home/about'
