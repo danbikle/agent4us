@@ -10,5 +10,34 @@ body {
     font-size: 1.5rem;
     line-height: 1.5;
     color: #000000;
-    font-weight: bold;    
+    font-weight: bold;
 }
+
+a:hover{ color: #BB0000; }
+
+a{ color: #0000AA; }
+
+div.syntax pre {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #330000;
+    font-weight: bold;
+    border-radius: 15px;
+    padding-left:  11px;
+    background-color: #DDDDDD;
+}
+.sbar890 {overflow: scroll; width: 890px; overflow-y: hidden;}
+.sbar950 {overflow: scroll; width: 950px; overflow-y: hidden;}
+.sbar999 {overflow: scroll; width: 999px; overflow-y: hidden;}
+.sbarv300 {width: 990px; height: 300px; overflow: scroll;}
+.zebra_it table tr:nth-child(odd) {
+  background-color: #DDDDDD; }
+
+.rotate90img>img{margin: 122px; display:block; width: 900px; transform: rotate(90deg);}
+
+div.grey_corners {
+    border-radius: 15px;
+    padding-left:  11px;
+    background-color: #DDDDDD;
+}
+
