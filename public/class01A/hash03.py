@@ -1,25 +1,26 @@
-"""
-hash03.py
+"""hash03.py
 
 This script should demo-how-to operate a Python implementation
 of a SHA-256 Cryptographic Hash Function.
 
+Demo:
 python hash03.py
-"""
 
-import hashlib
-"""
 Ref:
 https://docs.python.org/3/library/hashlib.html#simple-hashing
 
-I refactored this syntax to create my_hashf():
+The function, my_hashf() below, was created after I refactored this
+syntax from the above web page:
 
 >>> import hashlib
 >>> m = hashlib.sha256()
 >>> m.update(b"Nobody inspects")
 >>> m.update(b" the spammish repetition")
 >>> m.digest()
+
 """
+
+import hashlib
 
 def my_hashf(in_s):
     """This function should return a SHA-256 Cryptographic Hash of in_s."""
