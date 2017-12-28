@@ -1,4 +1,5 @@
-"""hash03.py
+"""
+hash03.py
 
 This script should demo-how-to operate a Python implementation
 of a SHA-256 Cryptographic Hash Function.
