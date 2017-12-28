@@ -20,7 +20,7 @@
     cryp4.us
   
  
-%p You don't need to actually watch the video.
+%p You do not need to actually watch the video.
 
 %p Most of the things you need to remember from the video are listed in this page.
 
@@ -28,8 +28,31 @@
 
 %p If you do or enhance the exercises, you will encounter a learning experience which is more effective than just watching the video.
 
+%hr/
+
 %h2 Concepts/Topics
 
+%h3 - Hash Function
 
+%p q: What is a hash function?
 
+%p
+  %a(href='https://www.google.com/search?q=What+is+a+hash+function?' target='x')
+    https://www.google.com/search?q=What+is+a+hash+function?
+    
+%p Ex: Create a hash function (not a cryptographic hash function) which accepts a string and outputs a string of 256 bits.
+
+%p Soln-Idea:
+%ul
+  %li Get the input string, input_s
+  %li Maybe the string is too short
+  %li add a 256 bit string to end of input_s 
+  %li return first 256 bits of input_s
+
+%p Python Soln
+
+.syntax
+  %pre
+    =render 'class01A10'
+  
 %hr/
