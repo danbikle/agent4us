@@ -61,4 +61,39 @@
   %pre
     =render 'class01A11'
   
+%p Java Solution
+
+%p I present the Java Solution using an idea called "Outside-In".
+
+%p The "Outside" is a shell script, hash01j.bash, which compiles a Java file.
+%p Then the shell script runs a Java-class file.
+%p I created a shell script which looks like the script below:
+
+.syntax
+  %pre
+    =render 'class01A12'
+%p I placed the above script in this folder:
+.syntax
+  %pre
+    %code ~/cryp4/public/class01A/
+    
+%p Now that the "Outside" is done, I can create the "Inside" which in this case is a simple Java-file.
+
+%p On my laptop I created Java-file named Main.java and I placed it in a folder below the shell script:
+
+.syntax
+  %pre
+    %code ~/cryp4/public/class01A/src/us/cryp4/Main.java
+
+%p Some beginners will be confused about proper folder structure of Java-apps.
+
+%p After working with Java for a few days, a beginner will develop a sense for how to design a folder structure for a Java-app.
+
+%p For this Java-app, I placed hash01j.bash in
+.syntax
+  %pre
+    %code ~/cryp4/public/class01A/
+%p And I placed Main.java in ~/cryp4/public/class01A/src/us/cryp4/
+%p Note that if a Java-app contains a package declaration, then that declaration will offer a small clue about proper folder structure.
+
 %hr/
