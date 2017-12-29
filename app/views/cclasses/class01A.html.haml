@@ -76,7 +76,18 @@
 .syntax
   %pre
     =render 'class01A11'
-  
+%p The above hash function works well.
+%p The function, however, lacks a feature called: "Hiding".
+%p I can see information about the input string by studying the output string.
+%p Another feature it lacks is "Collision Avoidance".
+%p The input strings listed below would all "Collide" meaning that the hash function would generate identical output for each string:
+
+%ul
+  %li "Today is Dec 27, 2017 and the weather in California is perfect."
+  %li "Today is Dec 27, 2017 and the we123abc"
+  %li "Today is Dec 27, 2017 and the weather in Boston is cold."
+  %li "Today is Dec 27, 2017 and the weird thing about carbon is ..."
+
 %p Java Solution
 
 %p I present the Java Solution using an idea called "Outside-In".
