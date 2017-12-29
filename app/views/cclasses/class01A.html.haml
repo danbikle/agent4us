@@ -235,7 +235,46 @@
 
 %h3#c_free Collision Free
 
-%p Collision Free demo software is under construction.
+%p The SHA-256 hash function will create a 256 bit "digest" AKA "hash" from any input string.
+
+%p How many digests are possible?
+
+%p I answer this by thinking about "small" hash functions.
+
+%p A 1 bit hash function can return 2 values: 0 or 1.
+
+%p A 2 bit hash function can return 4 values: 00, 01, 10, 11
+
+%p A 3 bit hash function can return 4x2 values:
+%ul
+  %li 000, 001, 010, 011
+  %li 100, 001, 110, 111
+
+%p A 4 bit hash function can return 8x2 values:
+%ul
+  %li 0 in front of these:
+  %li 000, 001, 010, 011
+  %li 100, 001, 110, 111
+  %li And then 1 instead of 0 in front of each:
+  %li 000, 001, 010, 011
+  %li 100, 001, 110, 111
+
+%p The pattern I see above is that a N-bit hash function can return 2**N values.
+
+%p So, a SHA-256 hash function can return 2**256 values which is about 1.16e+77.
+
+%p According to wolframalpha.com the mass of the Sun is 1.99e+33 grams:
+
+%p
+  %a(href='http://www.wolframalpha.com/input/?i=what+is+the+mass+of+the+sun' target='x')
+    http://www.wolframalpha.com/input/?i=what+is+the+mass+of+the+sun
+  
+
+%p So if I have 2**256 grams of solar-material, I could make 5.8e+43 Suns.
+
+%p The point I make is that a SHA-256 hash function makes so many unique digests, that the probability I can find two strings which make the same hash, is near zero.
+
+
 
 %h3#comm_s Commitment Scheme (to demonstrate hiding property).
 
