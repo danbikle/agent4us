@@ -9,6 +9,8 @@ package com.mkyong.test;
 
 import java.security.MessageDigest;
 
+/* public class SHAHashingExample
+   I prefer the name: "Main": */
 public class Main
 {
     public static void main(String[] args)throws Exception
