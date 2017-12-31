@@ -328,7 +328,7 @@
 
 %p The commitment idea presented by Ed will allow the buyers to commit to a bid and keep the bid hidden until Saturday.
 
-%p To implement the idea of a "Commitment", I will post software which allows two players to play "Rock-Scissors-Paper" over e-mail:
+%p To implement the idea of a "Commitment", I will post software which allows two players to play "Rock-Paper-Scissors" over e-mail:
 
 %p
   %a(href='https://www.google.com/search?q=what+is+game+rock+paper+scissors' target='x')
@@ -355,5 +355,22 @@
 %p An idea, called: "Puzzle Friendly", was presented in the video lecture.
 
 %p "Puzzle Friendly" demo software is under construction.
+
+%p Until it is ready, think about a "puzzle" I build for you:
+
+%ul
+  %li Monday I pick a random integer, say 11988, between 0 and 1 trillion.
+  %li I use sha-256 to get create a cryptographic commitment of 11988:
+  %li
+    %a(href='http://www.wolframalpha.com/input/?i=sha-256+of+11988' target='x')
+      http://www.wolframalpha.com/input/?i=sha-256+of+11988
+  %li I publish the commitment to the web:
+  %li 807b f787 6346 ea99 fe2a 6c11 79f0 3e2e 4f8f 6d0d ae97 180d ded7 e2ab 6225 0ad9
+  %li I offer $1 to anyone who can find an integer between 0 and 1 trillion which has a sha-256 hash which matches the above hash.
+  %li Tuesday you code a script which loops through all integers between 0 and 1 trillion.
+  %li For each integer, you calculate its sha-256 hash.
+  %li When your loop hits 11988 you will see a hash which matches my Monday hash.
+  %li You send me 11988 via e-mail.
+  %li I send you $1.
 
 %hr/
