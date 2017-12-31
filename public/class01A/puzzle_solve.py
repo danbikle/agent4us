@@ -1,4 +1,3 @@
-<code class='python'>
 """
 puzzle_solve.py
 
@@ -20,7 +19,7 @@ puzzle_digest_s = '02BE6761F02F2291C1FE54C103440F7B9BA65DA74DC84F1E08736D7A67824
 
 # I should start solving by specifying a range of integers.
 # If the range is large, the puzzle will be difficult.
-range_i = int(1e+4)
+range_i  = int(1e+4)
 
 for int_i in range(range_i+1):
     # I should convert the number to a string and feed that string to SHA-256:
@@ -40,4 +39,3 @@ for int_i in range(range_i+1):
         print('I solved the puzzle. The integer is: ',int_i)
         break
 'bye'
-</code>
