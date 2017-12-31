@@ -33,9 +33,10 @@ for digest_i in digest_b:
     digest1_s_l.append(digest1_s)
 # I should convert digest1_s_l to a string:
 digest_s = ''.join(digest1_s_l).upper()
-print("You should publish this SHA-256 hash-digest.")
-print("Ask contestants to find the integer which created this digest:")
+print("You should publish this SHA-256 hash-digest.",'It is a "Commitment":')
 print(digest_s)
+print("Ask contestants to find the integer which created the above digest.")
+print("The range they should search is 0 through: ",range_i)
 print("Here is the secret integer you want them to find:")
 print(random_i)
 
