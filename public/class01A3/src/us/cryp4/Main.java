@@ -32,15 +32,24 @@ public class Main {
          */
 	int range_i = (int) 1.0e4;
 	int int_i;
+	String digest_s;
         for (int_i = 0; int_i < range_i; int_i++) {
             // I should convert the number to a string and feed that string to SHA-256:
 	    String in_s = Integer.toString(int_i);
 	    MessageDigest my_hashlib = MessageDigest.getInstance("SHA-256");
-		
+	    my_hashlib.update(in_s.getBytes());
+	    byte digest_b[] = my_hashlib.digest();
+	    //convert the byte to hex format method 1
+	    StringBuffer sb = new StringBuffer();
+	    for (int i = 0; i < digest_b.length; i++) {
+		sb.append(Integer.toString((digest_b[i] & 0xff) + 0x100, 16).substring(1));
+	    }
+	    digest_s = sb.toString().toUpperCase();
+
 	    
 	}
         System.out.println(int_i);
-        System.out.println("done");
+
 	
 	/*
         String in_s      = random_i.toString();
