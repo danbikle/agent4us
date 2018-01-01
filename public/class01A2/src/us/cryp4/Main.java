@@ -18,7 +18,9 @@ import java.security.MessageDigest;
 
 public class Main {
 
-    public static void main(String[] args) {
-	String in_s = "4433";
+    public static void main(String[] args) throws Exception
+    {
+	String in_s      = "4433";
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
     }
 }
