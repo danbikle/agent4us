@@ -347,7 +347,6 @@
   
 
 %a(href='#top') Top
-
 %hr/
 
 %h3#puzzle Puzzle Friendly
@@ -373,6 +372,9 @@
   %li You send me 11988 via e-mail.
   %li I send you $1.
 
+%a(href='#top') Top
+%hr/
+
 %p.p_dark_green
   Code Exercise:
   %br/
@@ -390,6 +392,9 @@
   %pre
     =render 'class01A26'
 
+%a(href='#top') Top
+%hr/
+
 %p.p_dark_green
   Code Exercise:
   %br/
@@ -406,5 +411,39 @@
 .syntax
   %pre
     =render 'class01A30'
+
+%a(href='#top') Top
+%hr/
+
+%p.p_dark_green
+  Code Exercise:
+  %br/
+  Use Java to pick a random integer and then calculate its SHA-256 hash-digest.
+
+%p I prefer to start each Java-exercise using an outside-in mindset.
+%p This means I start with a shell script which should declare a folder structure for the Java-app.
+%p Also the shell script should compile and then run the Java-app:
+
+.syntax
+  %pre
+    =render 'class01A32'
+
+%p I placed the above script in this folder:
+
+.syntax
+  %pre
+    %code ~/cryp4/public/class01A2/
+
+%p After I wrote the above shell script, I wrote the Java-file:
+
+.syntax
+  %pre
+    =render 'class01A34'
+
+%p Next I ran the shell script to both compile and run the Java-app:
+
+.syntax
+  %pre
+    =render 'class01A36'
 
 %hr/
