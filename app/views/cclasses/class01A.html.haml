@@ -42,9 +42,10 @@
     %a(href='#comm_s')             Commitment Scheme
   %li
     %a(href='#puzzle')             Puzzle Friendly
+  %li
+    %a(href='#compare2')           Compare 2 Files With Hash-Digests
 
 %hr/
-
 %h3#hash_function Hash Function
 
 %p q: What is a Hash Function?
@@ -149,7 +150,6 @@
 %p Python is easy to operate yet just as capable as Java.
 
 %a(href='#top') Top
-
 %hr/
 
 %h3#cryp_hash_function Cryptographic Hash Function
@@ -238,7 +238,6 @@
     =render 'class01A22'
 
 %a(href='#top') Top
-
 %hr/
 
 %h3#c_free Collision Free
@@ -292,7 +291,6 @@
   
 
 %a(href='#top') Top
-
 %hr/
 
 
@@ -476,3 +474,23 @@
 
 %a(href='#top') Top
 %hr/
+
+%h3#compare2 Compare 2 Files With Hash-Digests
+
+%p The lecture presents the idea of using hash-digests to compare two files.
+
+%p A use-case for this idea is simple to imagine.
+
+%p Suppose I backup a large file to a google-drive.
+
+%p A year later, I restore the file to a new laptop.
+
+%p How can I determine if the the file is the same?
+
+%p The answer is for me to get a SHA-256 hash-digest of the file before I copy the file to google-drive.
+
+%p The hash-digest is tiny so I store many copies of it in many places.
+
+%p Then, A year later, I restore the file to a new laptop and get a SHA-256 hash-digest of the file.
+
+%p Due to SHA-256 being collision-free, I can be confident that the restored file is unchanged if its digest matches the original digest.
