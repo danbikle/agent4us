@@ -21,7 +21,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception
     {
-        Integer range_i      = 10000;
+        Integer range_i      = (int) 1.0e4;
         Integer random_i     = 8613;
         String in_s      = random_i.toString();
         MessageDigest md = MessageDigest.getInstance("SHA-256");
