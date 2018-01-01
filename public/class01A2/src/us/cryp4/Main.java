@@ -14,9 +14,11 @@ http://cryp4.us/cclasses/class01A#puzzle
 
 package us.cryp4;
 
+import java.security.MessageDigest;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	String in_s = "4433";
     }
 }
