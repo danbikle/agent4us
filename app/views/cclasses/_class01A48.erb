@@ -25,7 +25,6 @@ package us.cryp4;
 import java.security.MessageDigest;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-import java.util.Base64;
 
 public class Main {
 
@@ -43,12 +42,11 @@ public class Main {
         while ((count_i = bis.read(buffer)) > 0) {
             digest.update(buffer, 0, count_i);
         }
-        byte[] hash_b         = digest.digest();
-        byte[] encoded_hash_b = Base64.getEncoder().encode(hash_b);
-	// I should convert to String so I can see it:
-        System.out.println(new String(encoded_hash_b));
-	// That's how Java encodes the hash for readability.
-	// I prefer how Python encodes the hash.
+        byte[] hash_b = digest.digest();
+        // I should convert to String so I can see it:
+        String hash_s = javax.xml.bind.DatatypeConverter.printHexBinary(hash_b);
+        System.out.println("This should match what Python gives us:");
+        System.out.println(hash_s);
     }
 }
 </code>
