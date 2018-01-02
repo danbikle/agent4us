@@ -1,4 +1,4 @@
-<code class='bash'>
+<code class='java'>
 /*
 Main.java
 
@@ -24,9 +24,9 @@ public class Main {
     {
 
         /* I should find the integer, between 0 through 1e+4, which
-         * gives this hash-digest via SHA-256:
+         * gives this secure-hash via SHA-256:
          */
-        String puzzle_digest_s = "2AC5B691FA275BE817B9C8CD1A90D23383CA77C1B20FA4058CAF3DE6260425D2";
+        String puzzle_hash_s = "2AC5B691FA275BE817B9C8CD1A90D23383CA77C1B20FA4058CAF3DE6260425D2";
 
         /* I should start solving by specifying a range of
          * integers. If the range is large, the puzzle will be difficult:
@@ -39,14 +39,10 @@ public class Main {
             String in_s = Integer.toString(int_i);
             MessageDigest my_hashlib = MessageDigest.getInstance("SHA-256");
             my_hashlib.update(in_s.getBytes());
-            byte digest_b[] = my_hashlib.digest();
-            //convert the byte to hex format method 1
-            StringBuffer sb = new StringBuffer();
-            for (int i = 0; i < digest_b.length; i++) {
-                sb.append(Integer.toString((digest_b[i] & 0xff) + 0x100, 16).substring(1));
-            }
-            digest_s = sb.toString().toUpperCase();
-            if (digest_s.equals(puzzle_digest_s)) {
+            byte hash_b[] = my_hashlib.digest();
+            // I should convert to String so I can compare it:
+            String hash_s = javax.xml.bind.DatatypeConverter.printHexBinary(hash_b);
+            if (hash_s.equals(puzzle_hash_s)) {
                 System.out.println("I solved the puzzle. the integer is: "+int_i);
                 break;
             }
