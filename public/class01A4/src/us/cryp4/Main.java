@@ -1,6 +1,10 @@
-// Under construction.
 /*
+Main.java
+
+This Java-app should calculate a SHA-256 "secure-hash" AKA hash-digest of a large file.
+
 Ref:
+http://cryp4.us/cclases/class01A#compare2
 https://www.google.com/search?q=In+java+how+to+get+sha-256+hash+of+a+large+file
 https://stackoverflow.com/questions/32032851/how-to-calculate-hash-value-of-a-file-in-java
 
@@ -13,13 +17,14 @@ https://stackoverflow.com/questions/32032851/how-to-calculate-hash-value-of-a-fi
     }
     byte[] hash = digest.digest();
     System.out.println(new BASE64Encoder().encode(hash));
-
 */
+
 package us.cryp4;
 
 import java.security.MessageDigest;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
+import java.util.Base64;
 
 public class Main {
 
@@ -27,11 +32,22 @@ public class Main {
     {
         // write your code here
         byte[] buffer= new byte[8192];
-	int count_i;
+        int count_i;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
-	String fileName = "/tmp/Anaconda3-5.0.1-Linux-x86_64.sh";
+	
+	// curl https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh > /tmp/Anaconda3-5.0.1-Linux-x86_64.sh
+        String fileName = "/tmp/Anaconda3-5.0.1-Linux-x86_64.sh";
+	
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName));
-    
-    
+        while ((count_i = bis.read(buffer)) > 0) {
+            digest.update(buffer, 0, count_i);
+        }
+        byte[] hash = digest.digest();
+	/* The call below fails on java version "1.8.0_152":
+        System.out.println(new Base64.getEncoder().encode(hash));
+        The above call should work on Java 8 but fails:
+        Ref:
+        https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html#getEncoder--
+	*/
     }
 }
