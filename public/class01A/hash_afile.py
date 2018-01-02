@@ -36,6 +36,6 @@ with open(largef, 'rb') as large_fh:
         
 print('my_hashlib.hexdigest() of ')
 print(largef, ' is: ')
-print(my_hashlib.hexdigest())
+print(my_hashlib.hexdigest().upper())
 
 'bye'
