@@ -26,15 +26,8 @@ for int_i in range(range_i+1):
     in_s       = str(int_i)
     my_hashlib = hashlib.sha256()
     my_hashlib.update(in_s.encode('utf-8'))
-    digest_b = my_hashlib.digest()
-    # I should convert hashdigest_b to a string:
-    digest1_s_l = [] # I should fill this with loop below:
-    for digest_i in digest_b:
-        digest0_s = hex(digest_i)
-        digest1_s = digest0_s.replace('x','')[-2:]
-        digest1_s_l.append(digest1_s)
-    # I should convert digest1_s_l to a string:
-    digest_s = ''.join(digest1_s_l).upper()
+    # I should convert it to a readable string:
+    digest_s = my_hashlib.hexdigest().upper()
     if (digest_s == puzzle_digest_s):
         print('I solved the puzzle. The integer is: ',int_i)
         break
