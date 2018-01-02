@@ -13,5 +13,29 @@ python hash_afile.py
 """
 
 import hashlib
+import os
+
+# I should use curl to get a large file:
+curl   = '/usr/bin/curl '
+my_url = 'https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh '
+largef = '/tmp/Anaconda3-5.0.1-Linux-x86_64.sh'
+# I should use Python to run a shell command:
+os.system(curl + my_url + '>' + largef)
+
+# Specify how many bytes of the file you want to open at a time
+blocksize_i = 2**16
+
+# I should access the SHA-256 algo:
+my_hashlib  = hashlib.sha256()
+
+with open(largef, 'rb') as large_fh:
+    file_buffer = large_fh.read(blocksize_i)
+    while len(file_buffer) > 0:
+        my_hashlib.update(file_buffer)
+        file_buffer = large_fh.read(blocksize_i)
+        
+print('my_hashlib.hexdigest() of ')
+print(largef, ' is: ')
+print(my_hashlib.hexdigest())
 
 'bye'
