@@ -28,15 +28,11 @@ public class Main {
         String in_s      = random_i.toString();
         MessageDigest my_hashlib = MessageDigest.getInstance("SHA-256");
         my_hashlib.update(in_s.getBytes());
-        byte digest_b[] = my_hashlib.digest();
-        //convert the byte to hex format method 1
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < digest_b.length; i++) {
-            sb.append(Integer.toString((digest_b[i] & 0xff) + 0x100, 16).substring(1));
-        }
-        String digest_s = sb.toString().toUpperCase();
+        byte hash_b[] = my_hashlib.digest();
+        // I should convert to String so I can see it:
+        String hash_s = javax.xml.bind.DatatypeConverter.printHexBinary(hash_b);
         System.out.println("You should publish this SHA-256 hash-digest. It is a 'Commitment':");
-        System.out.println(digest_s);
+        System.out.println(hash_s);
         System.out.println("Ask contestants to find the integer which created the above digest.");
         System.out.println("The range they should search is 0 through: " + range_i);
         System.out.println("Here is the secret integer you want them to find:");
