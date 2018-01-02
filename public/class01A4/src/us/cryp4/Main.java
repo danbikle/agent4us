@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception
     {
-        byte[] buffer= new byte[8192];
+        byte[] buffer= new byte[(int) Math.pow(2,16)];
         int count_i;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         
