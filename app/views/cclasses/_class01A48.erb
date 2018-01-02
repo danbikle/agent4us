@@ -8,16 +8,6 @@ Ref:
 http://cryp4.us/cclases/class01A#compare2
 https://www.google.com/search?q=In+java+how+to+get+sha-256+hash+of+a+large+file
 https://stackoverflow.com/questions/32032851/how-to-calculate-hash-value-of-a-file-in-java
-
-    byte[] buffer= new byte[8192];
-    int count;
-    MessageDigest digest = MessageDigest.getInstance("SHA-256");
-    BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName));
-    while ((count = bis.read(buffer)) > 0) {
-        digest.update(buffer, 0, count);
-    }
-    byte[] hash = digest.digest();
-    System.out.println(new BASE64Encoder().encode(hash));
 */
 
 package us.cryp4;
@@ -30,7 +20,6 @@ public class Main {
 
     public static void main(String[] args) throws Exception
     {
-        // write your code here
         byte[] buffer= new byte[8192];
         int count_i;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
