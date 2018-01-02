@@ -24,15 +24,8 @@ random_i = secrets.choice(range(range_i))
 in_s       = str(random_i)
 my_hashlib = hashlib.sha256()
 my_hashlib.update(in_s.encode('utf-8'))
-digest_b = my_hashlib.digest()
-# I should convert hashdigest_b to a string:
-digest1_s_l = [] # I should fill this with loop below:
-for digest_i in digest_b:
-    digest0_s = hex(digest_i)
-    digest1_s = digest0_s.replace('x','')[-2:]
-    digest1_s_l.append(digest1_s)
-# I should convert digest1_s_l to a string:
-digest_s = ''.join(digest1_s_l).upper()
+# I should convert it to a readable string:
+digest_s = my_hashlib.hexdigest().upper()
 print("You should publish this SHA-256 hash-digest.",'It is a "Commitment":')
 print(digest_s)
 print("Ask contestants to find the integer which created the above digest.")
