@@ -19,14 +19,11 @@ public class Main {
 
     public static void main(String[] args) throws Exception
     {
-        byte[] buffer= new byte[(int) Math.pow(2,16)];
+        String filen_s = "/tmp/Anaconda3-5.0.1-Linux-x86_64.sh";
+        byte[] buffer  = new byte[(int) Math.pow(2,16)];
         int count_i;
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        
-        // curl https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh > /tmp/Anaconda3-5.0.1-Linux-x86_64.sh
-        String fileName = "/tmp/Anaconda3-5.0.1-Linux-x86_64.sh";
-        
-        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(fileName));
+        MessageDigest digest    = MessageDigest.getInstance("SHA-256");
+        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(filen_s));
         while ((count_i = bis.read(buffer)) > 0) {
             digest.update(buffer, 0, count_i);
         }
