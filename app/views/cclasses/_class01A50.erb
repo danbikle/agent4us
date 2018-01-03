@@ -1,12 +1,19 @@
 <code class='bash'>
-dan@h80:~/cryp4/public/class01A4 $ ./hash_afile.bash
+cryp4@cryp4:~/cryp4/public/class01A4 $ ./hash_afile.bash 
+This Java-app should calculate a SHA-256 secure-hash AKA hash-digest of a large file.
+I should get the large file now:
++ /usr/bin/curl https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  525M  100  525M    0     0   637k      0  0:14:04  0:14:04 --:--:--  293k
 + javac src/us/cryp4/Main.java
 + ls -la src/us/cryp4/Main.java
--rw-rw-r-- 1 dan dan 1779 Jan  1 23:08 src/us/cryp4/Main.java
+-rw-rw-r-- 1 cryp4 cryp4 1240 Jan  2 16:08 src/us/cryp4/Main.java
 + java -cp src us.cryp4.Main
 This should match what Python gives us:
 55E4DB1919F49C92D5ABBF27A4BE5986AE157F074BF9F8238963CD4582A4068A
 + exit
-dan@h80:~/cryp4/public/class01A4 $ 
-dan@h80:~/cryp4/public/class01A4 $ 
+cryp4@cryp4:~/cryp4/public/class01A4 $ 
+cryp4@cryp4:~/cryp4/public/class01A4 $ 
+cryp4@cryp4:~/cryp4/public/class01A4 $
 </code>
