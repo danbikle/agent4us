@@ -27,9 +27,9 @@ def rock_sha256(msg_s):
     my_hashlib = hashlib.sha256()
     my_hashlib.update(random_msg_s.encode('utf-8'))
     # I should convert it to a readable string:
-    secret_hash_s = my_hashlib.hexdigest().upper()
-    # random_i and secret_hash_s should be able to verify msg_s:
-    return msg_s, random_i, secret_hash_s
+    secure_hash_s = my_hashlib.hexdigest().upper()
+    # random_i and secure_hash_s should be able to verify msg_s:
+    return msg_s, random_i, secure_hash_s
 
 print('Although secret_msg never changes, the commitment should change so the Adversary cannot infer the secret_msg:')
 
