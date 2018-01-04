@@ -15,21 +15,23 @@ import hashlib
 import secrets
 
 def rock_sha256(msg_s):
-    # I should start sha creation by specifying a range of integers.
-    # If the range is large, the commitment should be hidden:
-    range_i  = int(1e+9)
-    # I should pick a random number from the range:
-    random_i = secrets.choice(range(range_i))
-    # I should convert the number to a string and concatenate it with msg
-    random_s     = str(random_i)
+    # Fails: random_i = secrets.choice(range(2**256))
+    # So,
+    # I should create a list with 64 random values, each tween 0 and 16:
+    hex_l = [hex(secrets.choice(range(16))) for place_i in range(64)]
+    # I see this list as a random number between 0 and 16**64 (is 2**256)
+    # I should convert the list to a string:
+    random_s     = ''.join(hex_l).replace('0x','').upper()
+    # I should move towards hiding msg_s:
     random_msg_s = random_s + msg_s
-    # I should generate the hash:
+    # I should access SHA-256 API:
     my_hashlib = hashlib.sha256()
+    # I should hide msg_s:
     my_hashlib.update(random_msg_s.encode('utf-8'))
     # I should convert it to a readable string:
     secure_hash_s = my_hashlib.hexdigest().upper()
-    # random_i and secure_hash_s should be able to verify msg_s:
-    return random_i, msg_s, secure_hash_s
+    # random_s and secure_hash_s should be able to verify msg_s:
+    return random_s, msg_s, secure_hash_s
 
 print('Although secret_msg never changes, the commitment should change so the Adversary cannot infer the secret_msg:')
 
