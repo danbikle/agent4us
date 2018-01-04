@@ -16,7 +16,7 @@ import secrets
 
 def rock_sha256(msg_s):
     # I should start sha creation by specifying a range of integers.
-    # If the range is large, the puzzle will be difficult.
+    # If the range is large, the commitment should be hidden:
     range_i  = int(1e+9)
     # I should pick a random number from the range:
     random_i = secrets.choice(range(range_i))
@@ -31,15 +31,13 @@ def rock_sha256(msg_s):
     # random_i and secret_hash_s should be able to verify msg_s:
     return msg_s, random_i, secret_hash_s
 
-secret_msg = "paper";
-
 print('Although secret_msg never changes, the commitment should change so the Adversary cannot infer the secret_msg:')
 
+secret_msg = "paper";
 print(rock_sha256(secret_msg))
 print(rock_sha256(secret_msg))
 
 secret_msg = "scissors";
-
 print(rock_sha256(secret_msg))
 print(rock_sha256(secret_msg))
 
