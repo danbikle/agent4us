@@ -29,15 +29,15 @@ def rock_sha256(msg_s):
     # I should convert it to a readable string:
     secure_hash_s = my_hashlib.hexdigest().upper()
     # random_i and secure_hash_s should be able to verify msg_s:
-    return msg_s, random_i, secure_hash_s
+    return random_i, msg_s, secure_hash_s
 
 print('Although secret_msg never changes, the commitment should change so the Adversary cannot infer the secret_msg:')
 
-secret_msg = "paper";
+secret_msg = "paper"
 print(rock_sha256(secret_msg))
 print(rock_sha256(secret_msg))
 
-secret_msg = "scissors";
+secret_msg = "scissors"
 print(rock_sha256(secret_msg))
 print(rock_sha256(secret_msg))
 
