@@ -44,6 +44,8 @@
     %a(href='#puzzle')             Puzzle Friendly
   %li
     %a(href='#compare2')           Compare 2 Files With Hash-Digests
+  %li
+    %a(href='#rock')               Hidden Rock,Paper,Scissors Commitment
 
 %hr/
 %h3#hash_function Hash Function
@@ -540,3 +542,30 @@
 %a(href='#top') Top
 %hr/
 
+
+%h3#rock Hidden Rock,Paper,Scissors Commitment
+
+%p The lecture presents the idea of hiding simple messages in a Commitment.
+
+%p The problem of a Commitment containing a simple message is that an adversary might guess the message before the author wants the message to be published.
+
+%p For example, the message might be one string from an enumerable set of strings: Rock,Paper,Scissors
+
+%p The lecture suggests that the author concatenate a random number with the message and then build the Commitment from the resulting random string.
+
+%p At reveal time, the author will be expected to produce both the random number and the message.
+
+%p The notation I use to remember this idea is simple: SHA-256(r|msg).
+
+
+%p.p_dark_green
+  Code Exercise:
+  %br/
+  Use Python to create an function which accepts a message and returns both a random number and a SHA-256 secure-hash. 
+
+.syntax
+  %pre
+    =render 'class01A52'
+
+%a(href='#top') Top
+%hr/
