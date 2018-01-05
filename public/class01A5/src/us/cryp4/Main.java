@@ -34,8 +34,7 @@ public class Main {
         // I should now have 256 bit random-int.
         // I should convert it to readable string:
         String random_s = new String(hex_char_a).toUpperCase();
-        String secret_msg    = "paper";
-        String random_msg_s  = random_s + secret_msg;
+        String random_msg_s  = random_s + msg_s;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         digest.update(random_msg_s.getBytes());
         // I should convert to byte-array so I can see it:
