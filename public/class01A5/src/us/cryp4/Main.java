@@ -16,6 +16,11 @@ import java.util.Random;
 
 public class Main {
 
+    public static void rock_sha256(String msg_s) throws Exception
+    {
+        System.out.println(msg_s);
+    }
+    
     public static void main(String[] args) throws Exception
     {
         Random rand       = new Random();
