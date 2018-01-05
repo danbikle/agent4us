@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class Main {
 
-    public static String rock_sha256(String msg_s) throws Exception
+    public static String[] rock_sha256(String msg_s) throws Exception
     {
         System.out.println(msg_s);
         Random rand       = new Random();
@@ -44,12 +44,13 @@ public class Main {
         // I should convert to String so I can see it:
         String hash_s = javax.xml.bind.DatatypeConverter.printHexBinary(hash_b);
         System.out.println(hash_s);
-	return msg_s;
+	String[] out_a = {msg_s,msg_s,msg_s};
+	return out_a;
     }
     
     public static void main(String[] args) throws Exception
     {
-	String out_s = rock_sha256("paper");
+	String[] out_s_a  = rock_sha256("paper");
         Random rand       = new Random();
         int hex_size_i    = 64; // Number of places in hex integer.
         char[] hex_char_a = new char[hex_size_i];
