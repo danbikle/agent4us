@@ -38,5 +38,7 @@ public class Main {
 	String random_msg_s  = random_s + secret_msg;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
 	digest.update(random_msg_s.getBytes());
+	// I should convert to byte-array so I can see it:
+	byte hash_b[] = digest.digest();
     }
 }
