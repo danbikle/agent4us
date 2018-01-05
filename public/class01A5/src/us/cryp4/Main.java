@@ -37,5 +37,6 @@ public class Main {
 	String secret_msg    = "paper";
 	String random_msg_s  = random_s + secret_msg;
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	digest.update(random_msg_s.getBytes());
     }
 }
