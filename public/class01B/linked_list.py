@@ -34,4 +34,10 @@ list_head_d['next'] = eve_d
 # Can I print this?
 print(list_head_d)
 
+# I should create another member:
+sam_d = {'txt': 'Sam is short for either Samantha or Samuel.'}
+sam_d['next']       = eve_d
+list_head_d['next'] = sam_d
+print(list_head_d)
+
 'bye'
