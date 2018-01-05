@@ -18,7 +18,16 @@ public class Main {
     public static Boolean rock_isvalid(String random_s, String msg_s, String secure_hash_s) throws Exception
     {
 	// This function should validate that SHA-256(r|msg) matches a given secure-hash.
-	return true;
+	String random_msg_s = random_s + msg_s;
+        // I should generate the hash:
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        digest.update(random_msg_s.getBytes());
+        // I should convert to byte-array so I can see it:
+        byte hash_b[] = digest.digest();
+        // I should convert to String so I can see it:
+        String my_hash_s = javax.xml.bind.DatatypeConverter.printHexBinary(hash_b);
+	// I should compare my_hash_s to secure_hash_s:
+	return my_hash_s.equals(secure_hash_s);
     }
     
     public static void main(String[] args) throws Exception
