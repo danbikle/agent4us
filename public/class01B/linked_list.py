@@ -40,4 +40,9 @@ sam_d['next']       = eve_d
 list_head_d['next'] = sam_d
 print(list_head_d)
 
+print('I should now have a linked list.')
+print(list_head_d['next'] == sam_d)
+print(sam_d['next']       == eve_d)
+print(eve_d['next']       == adam_d)
+
 'bye'
