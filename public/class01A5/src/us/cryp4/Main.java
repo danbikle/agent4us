@@ -48,6 +48,8 @@ public class Main {
     
     public static void main(String[] args) throws Exception
     {
+	// I should call rock_sha256(secret_msg):
+	
 	String secret_msg = "paper";
 	String[] out_s_a  = rock_sha256(secret_msg);
 	System.out.println("(");
@@ -82,6 +84,5 @@ public class Main {
         System.out.print(out_s_a[2]);
 	System.out.println();
 	System.out.println(")");
-
     }
 }
