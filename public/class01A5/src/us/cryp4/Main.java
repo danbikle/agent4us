@@ -17,6 +17,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception
     {
-        MessageDigest digest    = MessageDigest.getInstance("SHA-256");
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	// I should loop through 64 places in a hex integer:
+	for (int int_i = 0; int_i < 6; int_i++){
+	    System.out.println(int_i);
+	}
     }
 }
