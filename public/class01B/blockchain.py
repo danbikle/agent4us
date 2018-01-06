@@ -27,23 +27,26 @@ class Blockchain():
     """Class for creating a data structure called a 'Linked-List'."""
     def __init__(self):
         self.head = {'list_head': True, 'next': None, 'secure_hash_ofnext': None, 'txt': None}
-    def hashit(in_s):
+    def hashit(self, in_b):
         my_hashlib = hashlib.sha256()
-        in_b       = in_s.encode('utf-8')
         my_hashlib.update(in_b)
-        retunr my_hashlib.digest()
+        return my_hashlib.digest()
         
     def add_member(self, new_member_d):
-        if self.head['next']:
-            nextmem_d            = self.head['next']
-            new_member_d['next'] = nextmem_d
-            hashthis_s           = nextmem_d['txt']
-            if new_member_d['secure_hash_ofnext']:
-                hashthis_s = new_member_d['secure_hash_ofnext'] + hashthis_s
-            new_member_d['secure_hash_ofnext'] = hashit(hashthis_s)
-        self.head['next'] = new_member_d
-        hashthis_s        = new_member_d['secure_hash_ofnext'] + new_member_d['txt']
-        self.head['secure_hash_ofnext'] = hashit(hashthis_s)
+        # If the blockchain is empty, I should do this:
+        if self.head['next'] == None:
+            # I should add new_member_d
+            self.head['next'] = new_member_d
+            # I should get secure_hash of new_member_d['txt']
+            self.head['secure_hash_ofnext'] = self.hashit(new_member_d['txt'].encode('utf-8'))
+            # I am done for now
+            return True
+        # If blockchain not empty do this:
+        new_member_d['next']               = self.head['next']
+        new_member_d['secure_hash_ofnext'] = self.head['secure_hash_ofnext']
+        self.head['next']                  = new_member_d
+        hashthis_s = new_member_d['secure_hash_ofnext'] + new_member_d['txt'].encode('utf-8')
+        self.head['secure_hash_ofnext']    = self.hashit(hashthis_s)
         return True
     
 # I should demo the Blockchain class:
