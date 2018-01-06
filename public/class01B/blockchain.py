@@ -14,6 +14,8 @@ Demo:
 python blockchain.py
 """
 
+import hashlib
+
 # I should create my first member of the linked-list:
 adam_d = {'txt': 'Genesis says Adam is here.'}
 # I should create more members:
@@ -25,18 +27,23 @@ class Blockchain():
     """Class for creating a data structure called a 'Linked-List'."""
     def __init__(self):
         self.head = {'list_head': True, 'next': None, 'secure_hash_ofnext': None, 'txt': None}
+    def hashit(in_s):
+        my_hashlib = hashlib.sha256()
+        in_b       = in_s.encode('utf-8')
+        my_hashlib.update(in_b)
+        retunr my_hashlib.digest()
+        
     def add_member(self, new_member_d):
         if self.head['next']:
-            nextmem_d = self.head['next']
+            nextmem_d            = self.head['next']
             new_member_d['next'] = nextmem_d
-            new_member_d['secure_hash_ofnext'] = nextmem_d['txt']
-            # I should calculate secure_hash_ofnext
-            # which should be hash of next txt-value
-            # and hash of next secure_hash_ofnext-value.
+            hashthis_s           = nextmem_d['txt']
+            if new_member_d['secure_hash_ofnext']:
+                hashthis_s = new_member_d['secure_hash_ofnext'] + hashthis_s
+            new_member_d['secure_hash_ofnext'] = hashit(hashthis_s)
         self.head['next'] = new_member_d
-        self.head['secure_hash_ofnext'] = new_member_d['txt']
-        # if new_member_d['secure_hash_ofnext'] :
-        #    I should update the hash with that too.
+        hashthis_s        = new_member_d['secure_hash_ofnext'] + new_member_d['txt']
+        self.head['secure_hash_ofnext'] = hashit(hashthis_s)
         return True
     
 # I should demo the Blockchain class:
