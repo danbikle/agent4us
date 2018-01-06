@@ -35,7 +35,10 @@ linked_list = LinkedList()
 linked_list.add_member(adam_d)
 linked_list.add_member(eve_d)
 linked_list.add_member(sam_d)
-# I should see it:
+print('I should now have a linked list.')
 print(linked_list.head)
+print(linked_list.head['next'] == sam_d)
+print(sam_d['next']            == eve_d)
+print(eve_d['next']            == adam_d)
 
 'bye'
