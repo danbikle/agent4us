@@ -24,13 +24,19 @@ sam_d = {'txt': 'Sam is short for either Samantha or Samuel.'}
 class Blockchain():
     """Class for creating a data structure called a 'Linked-List'."""
     def __init__(self):
-        self.head = {'list_head': True, 'next': None, 'secure_hash_ofnext': None}
+        self.head = {'list_head': True, 'next': None, 'secure_hash_ofnext': None, 'txt': None}
     def add_member(self, new_member_d):
-        new_member_d['next'] = self.head['next']
-        # I should calculate secure_hash_ofnext
-        # which should be hash of next txt-value
-        # and hash of next secure_hash_ofnext-value.
+        if self.head['next']:
+            nextmem_d = self.head['next']
+            new_member_d['next'] = nextmem_d
+            new_member_d['secure_hash_ofnext'] = nextmem_d['txt']
+            # I should calculate secure_hash_ofnext
+            # which should be hash of next txt-value
+            # and hash of next secure_hash_ofnext-value.
         self.head['next'] = new_member_d
+        self.head['secure_hash_ofnext'] = new_member_d['txt']
+        # if new_member_d['secure_hash_ofnext'] :
+        #    I should update the hash with that too.
         return True
     
 # I should demo the Blockchain class:
