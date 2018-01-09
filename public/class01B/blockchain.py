@@ -59,7 +59,7 @@ class Blockchain():
             return False # I should exit here if blockchain invalid.
         else:
             # I should recurse to look at the next element in the blockchain:
-            self.isvalid(current_d['next'])
+            return self.isvalid(current_d['next'])
     
     def add_member(self, new_member_d):
         new_member_d['next']               = self.head['next']
@@ -71,14 +71,14 @@ class Blockchain():
 # I should demo the Blockchain class:
 pdb.set_trace()
 blockchain = Blockchain()
+blockchain.isvalid()
 blockchain.add_member(adam_d)
 blockchain.isvalid()
-'''
 blockchain.add_member(eve_d)
+blockchain.isvalid()
 blockchain.add_member(sam_d)
 print('I should now have a blockchain.')
 print(blockchain.head)
 blockchain.isvalid()
-'''
 
 'bye'
