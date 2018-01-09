@@ -10,6 +10,10 @@ secure_hash_ofnext.
 
 Additionally, Blockchain has a Boolean class-method named isvalid().
 
+The isvalid() method should return True as I build the blockchain.
+
+It should return False later, if I change data in the blockchain.
+
 Demo:
 python blockchain.py
 """
@@ -62,6 +66,7 @@ class Blockchain():
             return self.isvalid(current_d['next'])
     
     def add_member(self, new_member_d):
+        """This should add a member from a properly formatted dictionary."""
         new_member_d['next']               = self.head['next']
         new_member_d['secure_hash_ofnext'] = self.head['secure_hash_ofnext']
         self.head['next']                  = new_member_d
@@ -69,16 +74,20 @@ class Blockchain():
         return True
     
 # I should demo the Blockchain class:
-pdb.set_trace()
 blockchain = Blockchain()
-blockchain.isvalid()
+print(blockchain.isvalid()) # s.b. True
 blockchain.add_member(adam_d)
-blockchain.isvalid()
+print(blockchain.isvalid()) # s.b. True
 blockchain.add_member(eve_d)
-blockchain.isvalid()
+print(blockchain.isvalid()) # s.b. True
 blockchain.add_member(sam_d)
 print('I should now have a blockchain.')
 print(blockchain.head)
-blockchain.isvalid()
+print(blockchain.isvalid()) # s.b. True
+i_am_eve_d = blockchain.head['next']['next']
+i_am_eve_d['txt'] = 'Eve says hello.'
+print(blockchain.isvalid()) # s.b. False
+i_am_eve_d['txt'] = 'Eve says Hi.'
+print(blockchain.isvalid()) # s.b. True
 
 'bye'
