@@ -46,3 +46,14 @@ agent4@agent4:~/krl $
 agent4@agent4:~/krl $
 
 
+2018-01-15
+
+I should find something in krl I can run...
+
+If you want to run the examples, you'll also have to install `gym` by OpenAI.
+https://github.com/openai/gym#installation
+
+You'll also need the `h5py` package
+
+conda list|grep h5py
+
