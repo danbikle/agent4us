@@ -59,3 +59,49 @@ conda list|grep h5py
 
 gym:
    -
+You can perform a minimal install of gym with:
+
+git clone https://github.com/openai/gym.git
+cd gym
+pip install -e .
+
+I see good news:
+cd
+agent4@agent4:~ $ 
+agent4@agent4:~ $ git clone https://github.com/openai/gym.git
+Cloning into 'gym'...
+remote: Counting objects: 6241, done.        
+remote: Total 6241 (delta 0), reused 0 (delta 0), pack-reused 6241        
+Receiving objects: 100% (6241/6241), 1.54 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (4210/4210), done.
+Checking connectivity... done.
+agent4@agent4:~ $ cd gym
+agent4@agent4:~/gym $ pip install -e .
+Obtaining file:///home/agent4/gym
+Requirement already satisfied: numpy>=1.10.4 in /home/agent4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Requirement already satisfied: requests>=2.0 in /home/agent4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Requirement already satisfied: six in /home/agent4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Collecting pyglet>=1.2.0 (from gym==0.9.3)
+  Downloading pyglet-1.3.0-py2.py3-none-any.whl (1.0MB)
+    100% |████████████████████████████████| 1.0MB 1.1MB/s 
+[?25hRequirement already satisfied: chardet<3.1.0,>=3.0.2 in /home/agent4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: idna<2.7,>=2.5 in /home/agent4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: urllib3<1.23,>=1.21.1 in /home/agent4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: certifi>=2017.4.17 in /home/agent4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Collecting future (from pyglet>=1.2.0->gym==0.9.3)
+  Downloading future-0.16.0.tar.gz (824kB)
+    100% |████████████████████████████████| 829kB 87kB/s 
+[?25hBuilding wheels for collected packages: future
+  Running setup.py bdist_wheel for future ... [?25ldone
+[?25h  Stored in directory: /home/agent4/.cache/pip/wheels/c2/50/7c/0d83b4baac4f63ff7a765bd16390d2ab43c93587fac9d6017a
+Successfully built future
+Installing collected packages: future, pyglet, gym
+  Running setup.py develop for gym
+Successfully installed future-0.16.0 gym pyglet-1.3.0
+agent4@agent4:~/gym $ conda list |grep gym
+gym                       0.9.3                     <pip>
+agent4@agent4:~/gym $ conda list|grep keras
+keras                     2.1.2                    py36_0  
+keras-rl                  0.4.0                     <pip>
+agent4@agent4:~/gym $
+
