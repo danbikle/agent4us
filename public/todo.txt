@@ -3,3 +3,46 @@ This looks like a good place to start learning about RL coding:
 https://github.com/matthiasplappert/keras-rl
 
 
+steps:
+
+git clone https://github.com/matthiasplappert/keras-rl
+ln -s keras-rl krl
+
+study:
+https://github.com/matthiasplappert/keras-rl#how-do-i-install-it-and-how-do-i-get-started
+
+pip install keras-rl
+
+I dont have pip
+
+I should try conda install keras-rl
+that fails
+Try          conda install keras-rl -c conda-forge
+that fails
+
+I should try to install keras:
+conda install keras
+that worked
+
+I should try:
+pip install keras-rl
+
+It worked:
+agent4@agent4:~/krl $ pip install keras-rl
+Collecting keras-rl
+  Downloading keras-rl-0.4.0.tar.gz
+Requirement already satisfied: keras>=2.0.7 in /home/agent4/anaconda3/lib/python3.6/site-packages (from keras-rl)
+Requirement already satisfied: numpy>=1.9.1 in /home/agent4/anaconda3/lib/python3.6/site-packages (from keras>=2.0.7->keras-rl)
+Requirement already satisfied: scipy>=0.14 in /home/agent4/anaconda3/lib/python3.6/site-packages (from keras>=2.0.7->keras-rl)
+Requirement already satisfied: six>=1.9.0 in /home/agent4/anaconda3/lib/python3.6/site-packages (from keras>=2.0.7->keras-rl)
+Requirement already satisfied: pyyaml in /home/agent4/anaconda3/lib/python3.6/site-packages (from keras>=2.0.7->keras-rl)
+Building wheels for collected packages: keras-rl
+  Running setup.py bdist_wheel for keras-rl ... [?25ldone
+[?25h  Stored in directory: /home/agent4/.cache/pip/wheels/63/67/ab/e485ebd7deb431c6d1470eee62fb1f8b553f4c4cd034b576c6
+Successfully built keras-rl
+Installing collected packages: keras-rl
+Successfully installed keras-rl-0.4.0
+agent4@agent4:~/krl $ 
+agent4@agent4:~/krl $
+
+

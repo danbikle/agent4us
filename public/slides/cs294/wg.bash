@@ -1,0 +1,27 @@
+
+wget http://rll.berkeley.edu/deeprlcourse/docs/pieter_lecture.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/advanced_model_learning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_10_imitating_optimal_control.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_11_control_and_inference.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_12_irl.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_13_advanced_pg.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_13_exploration.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_14_transfer.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_15_multi_task_learning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_16_meta_learning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_17_challenges.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_1_introduction.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_2_behavior_cloning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_3_rl_intro.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_4_policy_gradient.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_5_actor_critic_pdf.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_6_value_functions.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_7_advanced_q_learning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_8_model_based_planning.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/lecture_9_model_based_rl.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/tf_review_session.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/hw1fall2017.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/hw4.pdf
+wget http://rll.berkeley.edu/deeprlcourse/docs/ng-thesis.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/hw2_final.pdf
+wget http://rll.berkeley.edu/deeprlcourse/f17docs/hw3.pdf
