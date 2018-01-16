@@ -206,4 +206,5 @@ ooooooooooo
 
 I should create a vbox:
   rl2016_0115.ova
+  user0: a4
   
