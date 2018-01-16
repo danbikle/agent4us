@@ -1,0 +1,42 @@
+%h1 Verify Anaconda installation
+
+%p I did this lab; it was easy.
+
+%p First I looked for a folder named anaconda3 in the a4 home-folder:
+
+.syntax
+  %pre
+    %code.bash ls -la ~a4/anaconda3/
+
+%p Next, I verified that ~a4/anaconda3/bin/python was located in my PATH before /usr/bin/python:
+
+.syntax
+  %pre
+    %code.bash
+      which python
+      echo $PATH
+
+%p Finally, I started Python:
+
+.syntax
+  %pre
+    %code.bash python
+
+%p I saw this:
+
+.syntax
+  %pre
+    =render 'class01veran1'
+
+%p One issue with Anaconda is that after I install it, I find a copy of ~/anaconda3/bin/curl in my PATH.
+
+%p I deal with this by moving it out of the way so I do not call it by mistake:
+
+.syntax
+  %pre
+    =render 'class01veran2'
+
+
+
+%a(href="/cclasses/class01#invbs") Lab Steps
+%hr/
