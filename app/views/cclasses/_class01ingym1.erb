@@ -1,0 +1,47 @@
+<code class='bash'>
+a4@a4:~$ git clone https://github.com/openai/gym.git
+Cloning into 'gym'...
+remote: Counting objects: 6241, done.        
+remote: Total 6241 (delta 0), reused 0 (delta 0), pack-reused 6241        
+Receiving objects: 100% (6241/6241), 1.54 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (4210/4210), done.
+Checking connectivity... done.
+a4@a4:~$ 
+a4@a4:~$ 
+a4@a4:~$ 
+
+
+
+a4@a4:~$ cd gym
+a4@a4:~$ 
+a4@a4:~$ 
+a4@a4:~$ 
+
+
+
+a4@a4:~/gym$ pip install -e .
+Obtaining file:///home/a4/gym
+Requirement already satisfied: numpy>=1.10.4 in /home/a4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Requirement already satisfied: requests>=2.0 in /home/a4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Requirement already satisfied: six in /home/a4/anaconda3/lib/python3.6/site-packages (from gym==0.9.3)
+Collecting pyglet>=1.2.0 (from gym==0.9.3)
+  Downloading pyglet-1.3.0-py2.py3-none-any.whl (1.0MB)
+    100% |████████████████████████████████| 1.0MB 1.4MB/s 
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /home/a4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: idna<2.7,>=2.5 in /home/a4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: urllib3<1.23,>=1.21.1 in /home/a4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Requirement already satisfied: certifi>=2017.4.17 in /home/a4/anaconda3/lib/python3.6/site-packages (from requests>=2.0->gym==0.9.3)
+Collecting future (from pyglet>=1.2.0->gym==0.9.3)
+  Downloading future-0.16.0.tar.gz (824kB)
+    100% |████████████████████████████████| 829kB 1.7MB/s 
+Building wheels for collected packages: future
+  Running setup.py bdist_wheel for future ... done
+  Stored in directory: /home/a4/.cache/pip/wheels/c2/50/7c/0d83b4baac4f63ff7a765bd16390d2ab43c93587fac9d6017a
+Successfully built future
+Installing collected packages: future, pyglet, gym
+  Running setup.py develop for gym
+Successfully installed future-0.16.0 gym pyglet-1.3.0
+a4@a4:~/gym$ 
+a4@a4:~/gym$
+a4@a4:~/gym$
+</code>
