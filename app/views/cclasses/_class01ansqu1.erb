@@ -87,7 +87,7 @@ Then these:
 env.seed(123)
 nb_actions = env.action_space.n
 
-Then when he builds the Keras sequential model, he needs to get some shape information from gym-env:
+Then when Matthias builds the Keras sequential model, he needs to get some shape information from gym-env:
 
 model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
 
@@ -125,14 +125,34 @@ https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py
 
 Although the git repo is called keras-rl, the name of the package is: "rl".
 
-So, DQNAgent, BoltzmannQPolicy, SequentialMemory appear in the script while he builds the agent.
+So, DQNAgent, BoltzmannQPolicy, SequentialMemory appear in the script while Matthias builds the agent.
 
 I see that DQNAgent is a constructor.
 
 BoltzmannQPolicy and SequentialMemory are called to create objects which are later fed to the constructor.
 
 
-How does dqn_cartpole.py make use of the keras package?
+How does dqn_cartpole.py make use of the Keras package?
+
+It uses the Keras package to create a neural network.
+
+The syntax looks like this:
+
+# Next, we build a very simple model.
+model = Sequential()
+model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(16))
+model.add(Activation('relu'))
+model.add(Dense(nb_actions))
+model.add(Activation('linear'))
+print(model.summary())
+
+I see similar syntax when I use Keras to build traditional Deep-Learning scripts.
+
 
 Do you see anything in the syntax or behavior of dqn_cartpole.py which you can relate to David Silver's first video:
 https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PL7-jPKtc4r78-wCZcQn5IqyuWhBZ8fOxT
