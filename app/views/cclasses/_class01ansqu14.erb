@@ -1,0 +1,53 @@
+<code class='bash'>
+First, Matthias issues three groups of import commands:
+
+import numpy as np
+import gym
+
+from keras.models import Sequential
+from keras.layers import Dense, Activation, Flatten
+from keras.optimizers import Adam
+
+from rl.agents.dqn import DQNAgent
+from rl.policy import BoltzmannQPolicy
+from rl.memory import SequentialMemory
+
+Perhaps the first group provides a foundation of capability.
+
+The second group is familiar to me because I have used those imports
+during my efforts to build Deep Learning models with Keras.
+
+The third group is new to me.
+
+I know that it is made available by the keras-rl package.
+
+I see installed locally:
+
+agent4@agent4:~/anaconda3 $ ll lib/python3.6/site-packages/rl
+total 112
+drwxrwxr-x   4 agent4 agent4  4096 Jan 15 00:50 ./
+drwxrwxr-x 323 agent4 agent4 20480 Jan 15 14:52 ../
+drwxrwxr-x   3 agent4 agent4  4096 Jan 15 00:50 agents/
+-rw-rw-r--   1 agent4 agent4 13959 Jan 15 00:50 callbacks.py
+-rw-rw-r--   1 agent4 agent4 26308 Jan 15 00:50 core.py
+-rw-rw-r--   1 agent4 agent4     0 Jan 15 00:50 __init__.py
+-rw-rw-r--   1 agent4 agent4 10740 Jan 15 00:50 memory.py
+-rw-rw-r--   1 agent4 agent4  6920 Jan 15 00:50 policy.py
+-rw-rw-r--   1 agent4 agent4  2624 Jan 15 00:50 processors.py
+drwxrwxr-x   2 agent4 agent4  4096 Jan 15 00:50 __pycache__/
+-rw-rw-r--   1 agent4 agent4  2071 Jan 15 00:50 random.py
+-rw-rw-r--   1 agent4 agent4  4476 Jan 15 00:50 util.py
+agent4@agent4:~/anaconda3 $ 
+agent4@agent4:~/anaconda3 $ 
+agent4@agent4:~/anaconda3 $ 
+
+I see it on github:
+
+<a href='https://github.com/matthiasplappert/keras-rl' target='x'>https://github.com/matthiasplappert/keras-rl</a>
+
+I see it on read the docs site:
+
+<a href='http://keras-rl.readthedocs.io/en/latest/core/' target='x'>http://keras-rl.readthedocs.io/en/latest/core/</a>
+
+
+</code>
