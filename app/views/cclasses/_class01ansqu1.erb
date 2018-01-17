@@ -113,6 +113,25 @@ dqn.test(env, nb_episodes=5, visualize=True)
 
 How does dqn_cartpole.py make use of the keras-rl package?
 
+I think that I access keras-rl first with these imports:
+
+from rl.agents.dqn import DQNAgent
+from rl.policy import BoltzmannQPolicy
+from rl.memory import SequentialMemory
+
+I verify this with help of github:
+
+https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py
+
+Although the git repo is called keras-rl, the name of the package is: "rl".
+
+So, DQNAgent, BoltzmannQPolicy, SequentialMemory appear in the script while he builds the agent.
+
+I see that DQNAgent is a constructor.
+
+BoltzmannQPolicy and SequentialMemory are called to create objects which are later fed to the constructor.
+
+
 How does dqn_cartpole.py make use of the keras package?
 
 Do you see anything in the syntax or behavior of dqn_cartpole.py which you can relate to David Silver's first video:
