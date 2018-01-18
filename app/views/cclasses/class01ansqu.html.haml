@@ -57,14 +57,38 @@
     Returning my attention to:
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
     I step into the next line of syntax with the pdb-debugger:
+    
     .syntax
       %pre
         %code.python env.seed(123)
+	
     .syntax
       %pre
         =render 'class01ansqu20'
+	
     So, that call: "Sets the seed for this env's random number generator(s)."
   
+
+  %li
+    I used the debugger again to study the next line of syntax:
+    
+    .syntax
+      %pre
+        %code.python nb_actions = env.action_space.n
+	
+    .syntax
+      %pre
+        =render 'class01ansqu22'
+
+    I see that call getting an integer from an attribute called action_space.
+    %br/
+    This attribute is a function call: Discrete(2).
+    %br/
+    What is Discrete()?
+
+
+
+%hr/    
 %p Plain text format:
 
 .syntax

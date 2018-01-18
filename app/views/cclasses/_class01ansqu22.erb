@@ -1,0 +1,22 @@
+<code class='python'>
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+(Pdb) b 20
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:20
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-18 15:47:32,152] Making new env: CartPole-v0
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(20)&lt;module>()
+-> nb_actions = env.action_space.n
+(Pdb) s
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(23)&lt;module>()
+-> model = Sequential()
+(Pdb) env
+&lt;TimeLimit&lt;CartPoleEnv&lt;CartPole-v0>>>
+(Pdb) env.action_space
+Discrete(2)
+(Pdb) env.action_space.n
+2
+(Pdb) 
+</code>
