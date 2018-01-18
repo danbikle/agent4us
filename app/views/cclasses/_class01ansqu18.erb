@@ -1,0 +1,66 @@
+<code class='bash'>Obviously, this line:
+ENV_NAME = 'CartPole-v0'
+sets a constant used in the next line:
+env = gym.make(ENV_NAME)
+
+Later, ENV_NAME, is used again to name a file which will be written in h5f format.
+
+Then env object appears many places in <a href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x'>dqn_cartpole.py</a>
+
+When I step into
+env = gym.make(ENV_NAME)
+with pdb-debugger I see the following result:
+
+
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+(Pdb) l
+  1  ->	import numpy as np
+  2  	import gym
+  3  	
+  4  	from keras.models import Sequential
+  5  	from keras.layers import Dense, Activation, Flatten
+  6  	from keras.optimizers import Adam
+  7  	
+  8  	from rl.agents.dqn import DQNAgent
+  9  	from rl.policy import BoltzmannQPolicy
+ 10  	from rl.memory import SequentialMemory
+ 11  	
+(Pdb) l
+ 12  	
+ 13  	ENV_NAME = 'CartPole-v0'
+ 14  	
+ 15  	
+ 16  	# Get the environment and extract the number of actions.
+ 17  	env = gym.make(ENV_NAME)
+ 18  	np.random.seed(123)
+ 19  	env.seed(123)
+ 20  	nb_actions = env.action_space.n
+ 21  	
+ 22  	# Next, we build a very simple model.
+(Pdb) b 17
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:17
+(Pdb) c
+Using TensorFlow backend.
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(17)&lt;module>()
+-> env = gym.make(ENV_NAME)
+(Pdb) s
+--Call--
+> /home/agent4/gym/gym/envs/registration.py(163)make()
+-> def make(id):
+(Pdb) l
+158  	registry = EnvRegistry()
+159  	
+160  	def register(id, **kwargs):
+161  	    return registry.register(id, **kwargs)
+162  	
+163  ->	def make(id):
+164  	    return registry.make(id)
+165  	
+166  	def spec(id):
+167  	    return registry.spec(id)
+[EOF]
+(Pdb) 
+
+</code>
