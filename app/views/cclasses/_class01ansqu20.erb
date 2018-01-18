@@ -1,0 +1,53 @@
+<code class='python'>
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+
+
+
+(Pdb) b 19
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:19
+
+
+
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-18 07:34:10,627] Making new env: CartPole-v0
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(19)&lt;module>()
+-> env.seed(123)
+
+
+
+(Pdb) s
+--Call--
+> /home/agent4/gym/gym/core.py(172)seed()
+-> def seed(self, seed=None):
+
+
+
+(Pdb) l
+167  	        env_closer.unregister(self._env_closer_id)
+168  	        # If an error occurs before this line, it's possible to
+169  	        # end up with double close.
+170  	        self._closed = True
+171  	
+172  ->	    def seed(self, seed=None):
+173  	        """Sets the seed for this env's random number generator(s).
+174  	
+175  	        Note:
+176  	            Some environments use multiple pseudorandom number generators.
+177  	            We want to capture all such seeds used in order to ensure that
+(Pdb) l
+178  	            there aren't accidental correlations between multiple generators.
+179  	
+180  	        Returns:
+181  	            list&lt;bigint>: Returns the list of seeds used in this env's random
+182  	              number generators. The first value in the list should be the
+183  	              "main" seed, or the value which a reproducer should pass to
+184  	              'seed'. Often, the main seed equals the provided 'seed', but
+185  	              this won't be true if seed=None, for example.
+186  	        """
+187  	        return self._seed(seed)
+188  	
+(Pdb) 
+</code>
