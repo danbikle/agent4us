@@ -1,2 +1,39 @@
 <code class='bash'>A use-case is: "A feedback-control system prevents a pole from falling over."
+
+More Info:
+<a href='https://medium.com/@m.alzantot/deep-reinforcement-learning-demystified-episode-0-2198c05a6124' target='x'>https://medium.com/@m.alzantot/deep-reinforcement-learning-demystified-episode-0-2198c05a6124</a>
+
+Solving Cart-Pole by policy search
+
+We will present a simple solution to solve the Cart-Pole problem based
+on random search.
+
+The idea is the following, assume your agent has a function that can
+be used to determine what action to perform (i.e. move the cart left
+or right ) based on the observation it receives from the environment.
+
+In reinforcement learning world, the function that maps observations
+to actions is known as the policy function.
+
+The goal of the agent learning process is to select the optimal policy
+which produces the maximum possible total reward.
+
+To find such a policy, we first choose a representation of our policy.
+
+In this problem the observation is a vector of 4 numbers and the
+action space consists of only two possible actions either 0 or 1.
+
+So we choose the policy as a parameters of a hyper-plane in 4
+dimensional space such that points to left of the hyper-plane will
+result in action 0 while points to its right will result in action 1.
+
+So, each policy is represented by 5 weights w1, w2, w3, w4, b such
+that the policy decision to select next action is made according to:
+
+if w1 * x1 + w2 * x2 + w3 * x3 + w4 * x4  + b > 0:
+   cart moves to right
+else
+   cart moves to left
+
+We solve the problem by using Reinforcement Learning to calculate the best weights.
 </code>
