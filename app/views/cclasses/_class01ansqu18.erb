@@ -12,7 +12,10 @@ env = gym.make(ENV_NAME)
 with pdb-debugger I see the following result:
 
 
-agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py 
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
+
+
+
 > /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
 -> import numpy as np
 (Pdb) l
@@ -26,7 +29,10 @@ agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
   8  	from rl.agents.dqn import DQNAgent
   9  	from rl.policy import BoltzmannQPolicy
  10  	from rl.memory import SequentialMemory
- 11  	
+ 11
+
+
+
 (Pdb) l
  12  	
  13  	ENV_NAME = 'CartPole-v0'
@@ -39,16 +45,28 @@ agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
  20  	nb_actions = env.action_space.n
  21  	
  22  	# Next, we build a very simple model.
+
+
+
 (Pdb) b 17
 Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:17
+
+
+
 (Pdb) c
 Using TensorFlow backend.
 > /home/agent4/keras-rl/examples/dqn_cartpole.py(17)&lt;module>()
 -> env = gym.make(ENV_NAME)
+
+
+
 (Pdb) s
 --Call--
 > /home/agent4/gym/gym/envs/registration.py(163)make()
 -> def make(id):
+
+
+
 (Pdb) l
 158  	registry = EnvRegistry()
 159  	
@@ -62,5 +80,103 @@ Using TensorFlow backend.
 167  	    return registry.spec(id)
 [EOF]
 (Pdb) 
+
+
+
+
+(Pdb) id
+'CartPole-v0'
+
+
+
+(Pdb) s
+> /home/agent4/gym/gym/envs/registration.py(164)make()
+-> return registry.make(id)
+(Pdb) s
+--Call--
+> /home/agent4/gym/gym/envs/registration.py(119)make()
+-> def make(self, id):
+
+
+
+(Pdb) l
+114  	    """
+115  	
+116  	    def __init__(self):
+117  	        self.env_specs = {}
+118  	
+119  ->	    def make(self, id):
+120  	        logger.info('Making new env: %s', id)
+121  	        spec = self.spec(id)
+122  	        env = spec.make()
+123  	        if (env.spec.timestep_limit is not None) and not spec.tags.get('vnc'):
+124  	            from gym.wrappers.time_limit import TimeLimit
+(Pdb) 
+
+
+
+So I see that this call:
+env = gym.make(ENV_NAME)
+evntually sends me to a method called make() in this file:
+<a href='https://github.com/openai/gym/blob/master/gym/envs/registration.py' target='x'>https://github.com/openai/gym/blob/master/gym/envs/registration.py</a>
+
+
+I sense that make() is acting a bit like a class-constructor.
+
+I see that make() resides in a class called: "EnvRegistry".
+
+When I step into that call I see this:
+
+> /home/agent4/gym/gym/envs/registration.py(122)make()
+-> env = spec.make()
+(Pdb) 
+
+
+(Pdb) s
+--Call--
+> /home/agent4/gym/gym/envs/registration.py(80)make()
+-> def make(self):
+(Pdb) l
+ 75  	        self._env_name = match.group(1)
+ 76  	        self._entry_point = entry_point
+ 77  	        self._local_only = local_only
+ 78  	        self._kwargs = {} if kwargs is None else kwargs
+ 79  	
+ 80  ->	    def make(self):
+ 81  	        """Instantiates an instance of the environment with appropriate kwargs"""
+ 82  	        if self._entry_point is None:
+ 83  	            raise error.Error('Attempting to make deprecated env {}. (HINT: is there a newer registered version of this env?)'.format(self.id))
+ 84  	
+ 85  	        elif callable(self._entry_point):
+(Pdb) 
+
+At that point I stop tracing it and look at the env object after it appears on line 18 of dqn_cartpole.py:
+
+
+(Pdb) b dqn_cartpole.py:18
+Breakpoint 2 at /home/agent4/keras-rl/examples/dqn_cartpole.py:18
+
+
+
+(Pdb) c
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(18)<module>()
+-> np.random.seed(123)
+
+
+
+(Pdb) env
+<TimeLimit<CartPoleEnv<CartPole-v0>>>
+(Pdb) 
+
+
+It looks like env is an instance of the class: "TimeLimit" which I find in this file:
+
+<a href='https://github.com/openai/gym/blob/master/gym/wrappers/time_limit.py' target='x'>
+https://github.com/openai/gym/blob/master/gym/wrappers/time_limit.py
+</a>
+
+I see syntax and comments in that file which suggest that it limits the duration of a cart-pole episode by counting either seconds or "steps.
+
+
 
 </code>
