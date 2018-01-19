@@ -314,6 +314,38 @@
     get translated to 0 or 1 when the Agent needs to issue an action.
 
 
+  %li
+    Returning my attention to:
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    I study the next section:
+    
+  %li
+  
+    .syntax
+      %pre
+        =render 'class01ansqu34'
+  %li The first three lines of syntax configure our Agent.
+  %li The fourth line compiles it.
+
+  %li I looked at the first line and asked Google a question:
+  %li
+    %a(href='https://www.google.com/search?q=In+keras-rl+what+is+SequentialMemory?' target='x')
+      https://www.google.com/search?q=In+keras-rl+what+is+SequentialMemory?
+  %li
+    in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/memory.py' target='x') memory.py
+    That led me to an insightful comment:
+  %li
+    .syntax
+      %pre
+        %code.python
+          \# Do not use deque to implement the memory. This data structure may seem convenient but
+          \# it is way too slow on random access. Instead, we use our own ring buffer implementation.  
+
+  %li
+    So, SequentialMemory is like
+    %a(href='https://docs.python.org/3/library/collections.html#collections.deque' target='x') collections.deque
+    , a popular class in the collections package, but faster.
 
 %hr/    
 %p Plain text format:
