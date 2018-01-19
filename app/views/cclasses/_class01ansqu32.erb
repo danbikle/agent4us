@@ -1,0 +1,39 @@
+<code class='bash'>
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(31)&lt;module>()
+-> model.add(Dense(nb_actions))
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(32)&lt;module>()
+-> model.add(Activation('linear'))
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(33)&lt;module>()
+-> print(model.summary())
+(Pdb) n
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 4)                 0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                80        
+_________________________________________________________________
+activation_1 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_3 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 2)                 34        
+_________________________________________________________________
+activation_4 (Activation)    (None, 2)                 0         
+=================================================================
+Total params: 658
+Trainable params: 658
+Non-trainable params: 0
+_________________________________________________________________
+None
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(37)&lt;module>()
+</code>

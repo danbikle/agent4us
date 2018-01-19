@@ -192,7 +192,7 @@
     .syntax
       %pre
         %code.python env.observation_space.shape
-	
+        
   %li The summary shows that this first layer is of type "Flatten".
   %li I asked google about that:
   %li
@@ -276,6 +276,43 @@
     If I want the arm stationary, I send it no signal.
     %br/
     I cannot conceive of a situation when I want to send a negative signal to my arm.
+
+
+  %li
+    Returning my attention to:
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    I continue stepping through what I call the Keras-model-creation section:
+    
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu24'
+  %li
+    After the script created the three hidden layers, I looked at a model.summary():
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu30'
+        
+  %li What I see above is what I expect: 
+  %li A densely connected network with a 4-neuron input layer and 3 hidden layers each with 16 neurons. 
+
+  %li
+    I stepped through two more lines:
+
+  %li
+    .syntax
+      %pre
+        =render 'class01ansqu32'
+  %li
+    Notice the last activation is 'linear'.
+  %li
+    I am curious to know how linear signals from this final layer will eventually
+    %br/
+    get translated to 0 or 1 when the Agent needs to issue an action.
+
 
 
 %hr/    

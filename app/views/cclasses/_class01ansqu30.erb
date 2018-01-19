@@ -1,0 +1,68 @@
+<code class='bash'>
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+
+
+
+(Pdb) b 23
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:23
+
+
+
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-18 23:37:49,620] Making new env: CartPole-v0
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(23)&lt;module>()
+-> model = Sequential()
+
+
+
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(24)&lt;module>()
+-> model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(25)&lt;module>()
+-> model.add(Dense(16))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(26)&lt;module>()
+-> model.add(Activation('relu'))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(27)&lt;module>()
+-> model.add(Dense(16))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(28)&lt;module>()
+-> model.add(Activation('relu'))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(29)&lt;module>()
+-> model.add(Dense(16))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(30)&lt;module>()
+-> model.add(Activation('relu'))
+(Pdb) 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(31)&lt;module>()
+-> model.add(Dense(nb_actions))
+(Pdb) model.summary()
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 4)                 0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                80        
+_________________________________________________________________
+activation_1 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_3 (Activation)    (None, 16)                0         
+=================================================================
+Total params: 624
+Trainable params: 624
+Non-trainable params: 0
+_________________________________________________________________
+(Pdb) 
+</code>
