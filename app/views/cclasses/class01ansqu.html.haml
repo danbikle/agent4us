@@ -332,9 +332,9 @@
     %a(href='https://www.google.com/search?q=In+keras-rl+what+is+SequentialMemory?' target='x')
       https://www.google.com/search?q=In+keras-rl+what+is+SequentialMemory?
   %li
-    in
-    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/memory.py' target='x') memory.py
-    That led me to an insightful comment:
+    That led me to an insightful comment in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/memory.py' target='x') memory.py:
+    
   %li
     .syntax
       %pre
@@ -346,6 +346,57 @@
     So, SequentialMemory is like
     %a(href='https://docs.python.org/3/library/collections.html#collections.deque' target='x') collections.deque
     , a popular class in the collections package, but faster.
+
+  %li I looked at the second line and asked Google a question:
+  %li
+    %a(href='https://www.google.com/search?q=In+keras-rl+what+is+BoltzmannQPolicy()' target='x')
+      https://www.google.com/search?q=In+keras-rl+what+is+BoltzmannQPolicy()?
+  %li The first result was this link:  
+  %li
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/policy.py' target='x')
+      https://github.com/matthiasplappert/keras-rl/blob/master/rl/policy.py
+  %li The syntax for that API call was short:
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu36'
+
+  %li
+    I see no comments in the class which is a disappointment
+    %br/
+    but I can see that it is selecting an action from an ennumerable set.
+    %br/
+    And, the selection depends on a combination of randomness and probabilities:
+  %li
+    %a(href='https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.random.choice.html    ' target='x')
+      https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.random.choice.html
+  %li The class below it has comments and they lead to an interesting link:
+  %li
+    .syntax
+      %pre
+        =render 'class01ansqu38'
+
+  %li The second link from that Google-search sent me to this page:
+  %li
+    %a(href='https://github.com/matthiasplappert/keras-rl/issues/18' target='x')
+      https://github.com/matthiasplappert/keras-rl/issues/18
+  %li
+    The above discussion highlights that this policy implements the idea that
+    %br/
+    sometimes I should "explore" actions and sometimes I should "exploit" actions
+    %br/
+    known to be rewarding.
+  %li David Silver discusses this idea near the end of this video:
+  %li
+    %a(href='https://youtu.be/2pWv7GOvuf0?t=4849' target='x')
+      https://youtu.be/2pWv7GOvuf0?t=4849
+  %li
+    %img(src='/class01/class01ansqu40.png')  
+  %li
+    %img(src='/class01/class01ansqu42.png')  
+  %li
+    %img(src='/class01/class01ansqu44.png')  
 
 %hr/    
 %p Plain text format:
