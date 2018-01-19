@@ -119,7 +119,16 @@
     So, Matthias is setting up a Discrete space which allows the agent
     %br/
     to push the cart in the 0-direction or the 1-direction which might be left or right.
-    
+    %br/
+    Q: Why is Matthias getting the number of actions from env.action_space.n?
+    %br
+    A: He needs this integer at two places later in the script:
+    %ul
+      %li He uses nb_actions to the define number of outputs of a Neural-Net.
+      %li He uses nb_actions to help initialize DQNAgent() which constructs an agent for the cart.
+
+
+
 %hr/    
 %p Plain text format:
 
