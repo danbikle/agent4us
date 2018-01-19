@@ -163,7 +163,7 @@
     .syntax
       %pre
         %code.python model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
-	
+        
   %li I studied that line with the debugger:
   
   %li
@@ -180,6 +180,60 @@
   %li Why does Matthias constrain this layer with Flatten?
   %li I assume he wants to ensure that each observation matches nicely with the input layer.
   %li Remember that in RL, an observation is a piece of data flowing from environment into agent.
+  %li
+    Perhaps when he built
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    he knew that observations would be one-dimensional.
+    
+  %li Next, I studied this line of sytnax:
+  
+  %li
+    .syntax
+      %pre
+        %code.python model.add(Dense(16))
+        
+  %li I asked google a simple question:
+  %li
+    %a(href='https://www.google.com/search?q=In+Keras+when+I+add+layer+what+is+Dense' target='x')
+      https://www.google.com/search?q=In+Keras+when+I+add+layer+what+is+Dense?
+  %li I liked these links returned by above search:
+  %ul
+    %li
+      %a(href='https://keras.io/layers/core/#dense' target='x')
+        https://keras.io/layers/core/#dense
+    %li
+      %a(href='https://www.quora.com/In-Keras-what-is-a-dense-and-a-dropout-layer' target='x')
+        https://www.quora.com/In-Keras-what-is-a-dense-and-a-dropout-layer
+  %li So, that line of syntax adds a layer after the input layer.  
+  %li
+    This second layer is densely connected to the input layer;
+    %br/
+    meaning that each neuron in the first layer connects to all neurons in the next layer.
+  %li Q: How does Matthias define each connection?
+  %li A: He uses this next line of syntax:
+  
+  %li
+    .syntax
+      %pre
+        %code.python model.add(Activation('relu'))
+   
+  %li I asked google about that:
+  %li
+    %a(href='https://www.google.com/search?q=In+Keras+add+what+is+Activation+relu' target='x')
+      https://www.google.com/search?q=In+Keras+add+what+is+Activation+relu
+
+  %li I liked these answers:
+  %ul
+    %li
+      %a(href='https://keras.io/activations/' target='x')
+        https://keras.io/activations/
+    %li
+      %a(href='https://towardsdatascience.com/exploring-activation-functions-for-neural-networks-73498da59b02' target='x')
+        https://towardsdatascience.com/exploring-activation-functions-for-neural-networks-73498da59b02
+  
+
+  
+
 
 %hr/    
 %p Plain text format:
