@@ -157,9 +157,29 @@
     The model built by Matthias has 3 hidden layers instead of just one.
     %br/
     Also Matthias built an output layer which has two outputs instead of three.    
+  %li Next, I studied this line of sytnax:
+  
   %li
+    .syntax
+      %pre
+        %code.python model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+	
+  %li I studied that line with the debugger:
+  
+  %li
+    .syntax
+      %pre
+        =render 'class01ansqu28'
     
-    
+  %li The summary shows that this first layer is of type "Flatten".
+  %li I asked google about that:
+  %li
+    %a(href='https://www.google.com/search?q=In+Keras+what+is+Flatten+Layer' target='x')
+      https://www.google.com/search?q=In+Keras+what+is+Flatten+Layer
+  %li So, it transforms an input with any nested-structure into a 1-D structure.
+  %li Why does Matthias constrain this layer with Flatten?
+  %li I assume he wants to ensure that each observation matches nicely with the input layer.
+  %li Remember that in RL, an observation is a piece of data flowing from environment into agent.
 
 %hr/    
 %p Plain text format:

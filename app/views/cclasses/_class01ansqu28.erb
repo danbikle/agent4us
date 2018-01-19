@@ -1,0 +1,50 @@
+<code class='python'>
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+
+
+
+(Pdb) b 24
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:24
+
+
+
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-18 17:32:49,781] Making new env: CartPole-v0
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(24)&lt;module>()
+-> model.add(Flatten(input_shape=(1,) + env.observation_space.shape))
+
+
+
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(25)&lt;module>()
+-> model.add(Dense(16))
+
+
+
+(Pdb) Flatten(input_shape=(1,) + env.observation_space.shape)
+&lt;keras.layers.core.Flatten object at 0x7f1458c47e80>
+
+
+
+(Pdb) env.observation_space.shape
+(4,)
+
+
+
+(Pdb) model.summary()
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 4)                 0         
+=================================================================
+Total params: 0
+Trainable params: 0
+Non-trainable params: 0
+_________________________________________________________________
+(Pdb)
+(Pdb)
+(Pdb)
+</code>
