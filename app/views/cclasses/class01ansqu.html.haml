@@ -15,9 +15,24 @@
     Can you describe a use-case solved by
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py?
   %li
+    %img(src='/class01/class01ansqu11.png')
+
+  %li
+
     .syntax
       %pre
         =render 'class01ansqu12'
+
+  %li
+    The above idea can be visualized with a diagram I see on the
+    %a(href='http://web.stanford.edu/class/cs234/index.html' target='s') Stanford-CS234
+    website:
+  %li
+    %img(src='/class01/class01ansqu13.png')
+  %li The output of the Agent is an Action which depends on a Policy function I should write.
+  %li If the Policy and Actions work well, the World sends me a signal called: "Reward".
+  %li Additionally the World sends me Observations which I feed into my Policy function.
+  %li Note that the gym-API, discussed below, uses the synonym Environment instead of World.
 
   %li
     Can you describe the imports at the top of
@@ -152,11 +167,9 @@
     %br/
     When I am done, I can visualize my model as something like this:
     %br/
-    %img(src='/class01/class01ansqu26.png')
+    %img(src='/class01/class01ansqu26.jpg')
     %br/
-    The model built by Matthias has 3 hidden layers instead of just one.
-    %br/
-    Also Matthias built an output layer which has two outputs instead of three.    
+    Matthias specified an output layer which has two outputs, as specified by nb_actions, instead of four.    
   %li Next, I studied this line of sytnax:
   
   %li
@@ -171,6 +184,15 @@
       %pre
         =render 'class01ansqu28'
     
+  %li model.summary() is useful; it tells me the input layer has 4 neurons.
+  %li We saw twice above, that gym will be sending observations which are an array of 4 numbers.
+  %li Matthias ensures this match happens by getting the shape of each observation with this expression:
+  %li
+  
+    .syntax
+      %pre
+        %code.python env.observation_space.shape
+	
   %li The summary shows that this first layer is of type "Flatten".
   %li I asked google about that:
   %li
@@ -181,7 +203,7 @@
   %li I assume he wants to ensure that each observation matches nicely with the input layer.
   %li Remember that in RL, an observation is a piece of data flowing from environment into agent.
   %li
-    Perhaps when he built
+    Obviously, when he built
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
     he knew that observations would be one-dimensional.
     
@@ -208,7 +230,7 @@
   %li
     This second layer is densely connected to the input layer;
     %br/
-    meaning that each neuron in the first layer connects to all neurons in the next layer.
+    meaning that each of the 4 neurons in the first layer connects to all 16 neurons in the next layer.
   %li Q: How does Matthias define each connection?
   %li A: He uses this next line of syntax:
   
@@ -244,7 +266,16 @@
     %a(href='https://towardsdatascience.com/@shudima' target='c') Dima Shulga:
   %li
     %img(src='/class01/class01ansqu28.png')
-  
+  %li
+    In a biological system this makes sense. Suppose I want to raise my arm.
+    %br/
+    I need to send it a signal, a positive signal.
+    %br/
+    If I want the arm to raise quickly, I send it more signal.
+    %br/
+    If I want the arm stationary, I send it no signal.
+    %br/
+    I cannot conceive of a situation when I want to send a negative signal to my arm.
 
 
 %hr/    
