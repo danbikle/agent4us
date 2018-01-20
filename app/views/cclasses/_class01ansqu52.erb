@@ -1,0 +1,122 @@
+<code class='python'>
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(39)&lt;module>()
+-> dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=10,
+(Pdb) model
+&lt;keras.models.Sequential object at 0x7f07a37cd438>
+
+
+
+(Pdb) nb_actions
+2
+
+
+
+(Pdb) memory
+&lt;rl.memory.SequentialMemory object at 0x7f07a37b3a20>
+
+
+
+(Pdb) policy
+&lt;rl.policy.BoltzmannQPolicy object at 0x7f07a3744f28>
+
+
+
+(Pdb) s
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(40)&lt;module>()
+-> target_model_update=1e-2, policy=policy)
+
+
+
+(Pdb) s
+--Call--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(92)__init__()
+-> def __init__(self, model, policy=None, test_policy=None, enable_double_dqn=True, enable_dueling_network=False,
+
+
+
+(Pdb) l
+ 87  	# http://arxiv.org/pdf/1312.5602.pdf
+ 88  	# http://arxiv.org/abs/1509.06461
+ 89  	class DQNAgent(AbstractDQNAgent):
+ 90  	    """Write me
+ 91  	    """
+ 92  ->	    def __init__(self, model, policy=None, test_policy=None, enable_double_dqn=True, enable_dueling_network=False,
+ 93  	                 dueling_type='avg', *args, **kwargs):
+ 94  	        super(DQNAgent, self).__init__(*args, **kwargs)
+ 95  	
+ 96  	        # Validate (important) input.
+ 97  	        if hasattr(model.output, '__len__') and len(model.output) > 1:
+
+
+(Pdb) s
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(94)__init__()
+-> super(DQNAgent, self).__init__(*args, **kwargs)
+
+
+
+(Pdb) args
+self = &lt;rl.agents.dqn.DQNAgent object at 0x7f07a3744940>
+model = &lt;keras.models.Sequential object at 0x7f07a37cd438>
+policy = &lt;rl.policy.BoltzmannQPolicy object at 0x7f07a3744f28>
+test_policy = None
+enable_double_dqn = True
+enable_dueling_network = False
+dueling_type = 'avg'
+args = ()
+kwargs = {'nb_actions': 2, 'memory': &lt;rl.memory.SequentialMemory object at 0x7f07a37b3a20>, 'nb_steps_warmup': 10, 'target_model_update': 0.01}
+
+
+
+(Pdb) l
+ 89  	class DQNAgent(AbstractDQNAgent):
+ 90  	    """Write me
+ 91  	    """
+ 92  	    def __init__(self, model, policy=None, test_policy=None, enable_double_dqn=True, enable_dueling_network=False,
+ 93  	                 dueling_type='avg', *args, **kwargs):
+ 94  ->	        super(DQNAgent, self).__init__(*args, **kwargs)
+ 95  	
+ 96  	        # Validate (important) input.
+ 97  	        if hasattr(model.output, '__len__') and len(model.output) > 1:
+ 98  	            raise ValueError('Model "{}" has more than one output. DQN expects a model that has a single output.'.format(model))
+ 99  	        if model.output._keras_shape != (None, self.nb_actions):
+
+
+
+(Pdb) s
+--Call--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(20)__init__()
+-> def __init__(self, nb_actions, memory, gamma=.99, batch_size=32, nb_steps_warmup=1000,
+(Pdb) l
+ 15  	
+ 16  	
+ 17  	class AbstractDQNAgent(Agent):
+ 18  	    """Write me
+ 19  	    """
+ 20  ->	    def __init__(self, nb_actions, memory, gamma=.99, batch_size=32, nb_steps_warmup=1000,
+ 21  	                 train_interval=1, memory_interval=1, target_model_update=10000,
+ 22  	                 delta_range=None, delta_clip=np.inf, custom_model_objects={}, **kwargs):
+ 23  	        super(AbstractDQNAgent, self).__init__(**kwargs)
+ 24  	
+ 25  	        # Soft vs hard target model updates.
+(Pdb) s
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(23)__init__()
+-> super(AbstractDQNAgent, self).__init__(**kwargs)
+(Pdb) args
+self = &lt;rl.agents.dqn.DQNAgent object at 0x7f07a3744940>
+nb_actions = 2
+memory = &lt;rl.memory.SequentialMemory object at 0x7f07a37b3a20>
+gamma = 0.99
+batch_size = 32
+nb_steps_warmup = 10
+train_interval = 1
+memory_interval = 1
+target_model_update = 0.01
+delta_range = None
+delta_clip = inf
+custom_model_objects = {}
+kwargs = {}
+(Pdb)
+
+
+
+</code>
