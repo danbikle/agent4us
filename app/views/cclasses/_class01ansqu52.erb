@@ -98,9 +98,15 @@ kwargs = {'nb_actions': 2, 'memory': &lt;rl.memory.SequentialMemory object at 0x
  23  	        super(AbstractDQNAgent, self).__init__(**kwargs)
  24  	
  25  	        # Soft vs hard target model updates.
+
+
+
 (Pdb) s
 > /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(23)__init__()
 -> super(AbstractDQNAgent, self).__init__(**kwargs)
+
+
+
 (Pdb) args
 self = &lt;rl.agents.dqn.DQNAgent object at 0x7f07a3744940>
 nb_actions = 2
@@ -118,5 +124,304 @@ kwargs = {}
 (Pdb)
 
 
+
+(Pdb) l
+ 18  	    """Write me
+ 19  	    """
+ 20  	    def __init__(self, nb_actions, memory, gamma=.99, batch_size=32, nb_steps_warmup=1000,
+ 21  	                 train_interval=1, memory_interval=1, target_model_update=10000,
+ 22  	                 delta_range=None, delta_clip=np.inf, custom_model_objects={}, **kwargs):
+ 23  ->	        super(AbstractDQNAgent, self).__init__(**kwargs)
+ 24  	
+ 25  	        # Soft vs hard target model updates.
+ 26  	        if target_model_update &lt; 0:
+ 27  	            raise ValueError('`target_model_update` must be >= 0.')
+ 28  	        elif target_model_update >= 1:
+(Pdb)
+
+
+
+(Pdb) s
+--Call--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(34)__init__()
+-> def __init__(self, processor=None):
+
+
+
+(Pdb) l 1
+  1  	# -*- coding: utf-8 -*-
+  2  	import warnings
+  3  	from copy import deepcopy
+  4  	
+  5  	import numpy as np
+  6  	from keras.callbacks import History
+  7  	
+  8  	from rl.callbacks import TestLogger, TrainEpisodeLogger, TrainIntervalLogger, Visualizer, CallbackList
+  9  	
+ 10  	
+ 11  	class Agent(object):
+(Pdb) l 12
+  7  	
+  8  	from rl.callbacks import TestLogger, TrainEpisodeLogger, TrainIntervalLogger, Visualizer, CallbackList
+  9  	
+ 10  	
+ 11  	class Agent(object):
+ 12  	    """Abstract base class for all implemented agents.
+ 13  	
+ 14  	    Each agent interacts with the environment (as defined by the `Env` class) by first observing the
+ 15  	    state of the environment. Based on this observation the agent changes the environment by performing
+ 16  	    an action.
+ 17  	
+(Pdb) l 18
+ 13  	
+ 14  	    Each agent interacts with the environment (as defined by the `Env` class) by first observing the
+ 15  	    state of the environment. Based on this observation the agent changes the environment by performing
+ 16  	    an action.
+ 17  	
+ 18  	    Do not use this abstract base class directly but instead use one of the concrete agents implemented.
+ 19  	    Each agent realizes a reinforcement learning algorithm. Since all agents conform to the same
+ 20  	    interface, you can use them interchangeably.
+ 21  	
+ 22  	    To implement your own agent, you have to implement the following methods:
+ 23  	
+(Pdb) l 24
+ 19  	    Each agent realizes a reinforcement learning algorithm. Since all agents conform to the same
+ 20  	    interface, you can use them interchangeably.
+ 21  	
+ 22  	    To implement your own agent, you have to implement the following methods:
+ 23  	
+ 24  	    - `forward`
+ 25  	    - `backward`
+ 26  	    - `compile`
+ 27  	    - `load_weights`
+ 28  	    - `save_weights`
+ 29  	    - `layers`
+(Pdb) l 30
+ 25  	    - `backward`
+ 26  	    - `compile`
+ 27  	    - `load_weights`
+ 28  	    - `save_weights`
+ 29  	    - `layers`
+ 30  	
+ 31  	    # Arguments
+ 32  	        processor (`Processor` instance): See [Processor](#processor) for details.
+ 33  	    """
+ 34  ->	    def __init__(self, processor=None):
+ 35  	        self.processor = processor
+
+
+
+(Pdb) s
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(35)__init__()
+-> self.processor = processor
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(36)__init__()
+-> self.training = False
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(37)__init__()
+-> self.step = 0
+(Pdb) n
+--Return--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(37)__init__()->None
+-> self.step = 0
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(26)__init__()
+-> if target_model_update &lt; 0:
+(Pdb)
+
+
+
+
+(Pdb) l
+ 21  	                 train_interval=1, memory_interval=1, target_model_update=10000,
+ 22  	                 delta_range=None, delta_clip=np.inf, custom_model_objects={}, **kwargs):
+ 23  	        super(AbstractDQNAgent, self).__init__(**kwargs)
+ 24  	
+ 25  	        # Soft vs hard target model updates.
+ 26  ->	        if target_model_update &lt; 0:
+ 27  	            raise ValueError('`target_model_update` must be >= 0.')
+ 28  	        elif target_model_update >= 1:
+ 29  	            # Hard update every `target_model_update` steps.
+ 30  	            target_model_update = int(target_model_update)
+ 31  	        else:
+(Pdb) target_model_update
+0.01
+
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(28)__init__()
+-> elif target_model_update >= 1:
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(33)__init__()
+-> target_model_update = float(target_model_update)
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(35)__init__()
+-> if delta_range is not None:
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(40)__init__()
+-> self.nb_actions = nb_actions
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(41)__init__()
+-> self.gamma = gamma
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(42)__init__()
+-> self.batch_size = batch_size
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(43)__init__()
+-> self.nb_steps_warmup = nb_steps_warmup
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(44)__init__()
+-> self.train_interval = train_interval
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(45)__init__()
+-> self.memory_interval = memory_interval
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(46)__init__()
+-> self.target_model_update = target_model_update
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(47)__init__()
+-> self.delta_clip = delta_clip
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(48)__init__()
+-> self.custom_model_objects = custom_model_objects
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(51)__init__()
+-> self.memory = memory
+(Pdb) 
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(54)__init__()
+-> self.compiled = False
+(Pdb) n
+--Return--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(54)__init__()->None
+-> self.compiled = False
+
+
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(97)__init__()
+-> if hasattr(model.output, '__len__') and len(model.output) > 1:
+(Pdb) l 89
+ 84  	        }
+ 85  	
+ 86  	# An implementation of the DQN agent as described in Mnih (2013) and Mnih (2015).
+ 87  	# http://arxiv.org/pdf/1312.5602.pdf
+ 88  	# http://arxiv.org/abs/1509.06461
+ 89  	class DQNAgent(AbstractDQNAgent):
+ 90  	    """Write me
+ 91  	    """
+ 92  	    def __init__(self, model, policy=None, test_policy=None, enable_double_dqn=True, enable_dueling_network=False,
+ 93  	                 dueling_type='avg', *args, **kwargs):
+ 94  	        super(DQNAgent, self).__init__(*args, **kwargs)
+(Pdb) l 95
+ 90  	    """Write me
+ 91  	    """
+ 92  	    def __init__(self, model, policy=None, test_policy=None, enable_double_dqn=True, enable_dueling_network=False,
+ 93  	                 dueling_type='avg', *args, **kwargs):
+ 94  	        super(DQNAgent, self).__init__(*args, **kwargs)
+ 95  	
+ 96  	        # Validate (important) input.
+ 97  ->	        if hasattr(model.output, '__len__') and len(model.output) > 1:
+ 98  	            raise ValueError('Model "{}" has more than one output. DQN expects a model that has a single output.'.format(model))
+ 99  	        if model.output._keras_shape != (None, self.nb_actions):
+100  	            raise ValueError('Model output "{}" has invalid shape. DQN expects a model that has one dimension for each action, in this case {}.'.format(model.output, self.nb_actions))
+(Pdb)
+
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(99)__init__()
+-> if model.output._keras_shape != (None, self.nb_actions):
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(103)__init__()
+-> self.enable_double_dqn = enable_double_dqn
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(104)__init__()
+-> self.enable_dueling_network = enable_dueling_network
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(105)__init__()
+-> self.dueling_type = dueling_type
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(106)__init__()
+-> if self.enable_dueling_network:
+(Pdb) self.enable_dueling_network
+False
+(Pdb)
+
+
+
+
+
+
+(Pdb) l
+101  	
+102  	        # Parameters.
+103  	        self.enable_double_dqn = enable_double_dqn
+104  	        self.enable_dueling_network = enable_dueling_network
+105  	        self.dueling_type = dueling_type
+106  ->	        if self.enable_dueling_network:
+107  	            # get the second last layer of the model, abandon the last layer
+108  	            layer = model.layers[-2]
+109  	            nb_action = model.output._keras_shape[-1]
+110  	            # layer y has a shape (nb_action+1,)
+111  	            # y[:,0] represents V(s;theta)
+(Pdb)
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(133)__init__()
+-> self.model = model
+(Pdb) l
+128  	                assert False, "dueling_type must be one of {'avg','max','naive'}"
+129  	
+130  	            model = Model(inputs=model.input, outputs=outputlayer)
+131  	
+132  	        # Related objects.
+133  ->	        self.model = model
+134  	        if policy is None:
+135  	            policy = EpsGreedyQPolicy()
+136  	        if test_policy is None:
+137  	            test_policy = GreedyQPolicy()
+138  	        self.policy = policy
+(Pdb)
+
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(134)__init__()
+-> if policy is None:
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(136)__init__()
+-> if test_policy is None:
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(137)__init__()
+-> test_policy = GreedyQPolicy()
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(138)__init__()
+-> self.policy = policy
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(139)__init__()
+-> self.test_policy = test_policy
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(142)__init__()
+-> self.reset_states()
+(Pdb) n
+--Return--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/agents/dqn.py(142)__init__()->None
+-> self.reset_states()
+(Pdb) n
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(41)&lt;module>()
+-> dqn.compile(Adam(lr=1e-3), metrics=['mae'])
+(Pdb) 
+
+
+Now I am back inside dqn_cartpole.py
+
+Meaning that I have stepped all through the syntax which supports this call:
+
+
+dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=10,
+               target_model_update=1e-2, policy=policy)
 
 </code>
