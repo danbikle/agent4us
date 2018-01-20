@@ -1,0 +1,108 @@
+<code class='bash'>
+agent4@agent4:~ $ 
+agent4@agent4:~ $ git clone https://github.com/matthiasplappert/keras-rl
+Cloning into 'keras-rl'...
+remote: Counting objects: 1406, done.        
+remote: Total 1406 (delta 0), reused 0 (delta 0), pack-reused 1406        
+Receiving objects: 100% (1406/1406), 1.27 MiB | 0 bytes/s, done.
+Resolving deltas: 100% (888/888), done.
+Checking connectivity... done.
+agent4@agent4:~ $ 
+
+
+
+agent4@agent4:~ $ cd keras-rl
+agent4@agent4:~/keras-rl $ 
+agent4@agent4:~/keras-rl $ git log -1
+commit edb251dc2dfd4e23a64a2e08923cd8e3f6ea4d09
+Author: Matthias Plappert &lt;matthiasplappert@me.com>
+Date:   Mon Dec 4 12:18:54 2017 +0100
+
+    Bump version
+agent4@agent4:~/keras-rl $ 
+
+
+
+agent4@agent4:~/keras-rl $ ll
+total 76
+drwxrwxr-x  8 agent4 agent4 4096 Jan 19 16:05 ./
+drwxr-xr-x 30 agent4 agent4 4096 Jan 19 16:05 ../
+drwxrwxr-x  2 agent4 agent4 4096 Jan 19 16:05 assets/
+drwxrwxr-x  4 agent4 agent4 4096 Jan 19 16:05 docs/
+drwxrwxr-x  2 agent4 agent4 4096 Jan 19 16:05 examples/
+drwxrwxr-x  8 agent4 agent4 4096 Jan 19 16:05 .git/
+-rw-rw-r--  1 agent4 agent4  824 Jan 19 16:05 .gitignore
+-rw-rw-r--  1 agent4 agent4  924 Jan 19 16:05 ISSUE_TEMPLATE.md
+-rw-rw-r--  1 agent4 agent4 1084 Jan 19 16:05 LICENSE
+-rw-rw-r--  1 agent4 agent4  615 Jan 19 16:05 mkdocs.yml
+-rw-rw-r--  1 agent4 agent4 1050 Jan 19 16:05 pytest.ini
+-rw-rw-r--  1 agent4 agent4 8283 Jan 19 16:05 README.md
+drwxrwxr-x  3 agent4 agent4 4096 Jan 19 16:05 rl/
+-rw-rw-r--  1 agent4 agent4   40 Jan 19 16:05 setup.cfg
+-rw-rw-r--  1 agent4 agent4  552 Jan 19 16:05 setup.py
+drwxrwxr-x  4 agent4 agent4 4096 Jan 19 16:05 tests/
+-rw-rw-r--  1 agent4 agent4 2520 Jan 19 16:05 .travis.yml
+agent4@agent4:~/keras-rl $ 
+agent4@agent4:~/keras-rl $ 
+
+
+
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)&lt;module>()
+-> import numpy as np
+
+
+
+(Pdb) b 39
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:39
+
+
+
+(Pdb) l 39
+ 34  	
+ 35  	# Finally, we configure and compile our agent. You can use every built-in Keras optimizer and
+ 36  	# even the metrics!
+ 37  	memory = SequentialMemory(limit=50000, window_length=1)
+ 38  	policy = BoltzmannQPolicy()
+ 39 B	dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=10,
+ 40  	               target_model_update=1e-2, policy=policy)
+ 41  	dqn.compile(Adam(lr=1e-3), metrics=['mae'])
+ 42  	
+ 43  	# Okay, now it's time to learn something! We visualize the training here for show, but this
+ 44  	# slows down training quite a lot. You can always safely abort the training prematurely using
+
+
+
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-19 16:06:14,733] Making new env: CartPole-v0
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 4)                 0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                80        
+_________________________________________________________________
+activation_1 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_3 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 2)                 34        
+_________________________________________________________________
+activation_4 (Activation)    (None, 2)                 0         
+=================================================================
+Total params: 658
+Trainable params: 658
+Non-trainable params: 0
+_________________________________________________________________
+None
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(39)&lt;module>()
+-> dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=10,
+(Pdb)
+</code>
