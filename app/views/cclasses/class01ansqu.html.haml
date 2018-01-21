@@ -621,6 +621,21 @@
       https://keras.io/models/about-keras-models/
   
   
+  %li
+    I see in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    that layers is implemented by class DQNAgent():
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu62'
+  %li It is a simple call which returns a list of layers in self.model.
+  %li The @property makes the call a getter of the layers property for the DQNAgent class.
+  %li
+    %a(href='http://stackabuse.com/python-properties/' target='x')
+      http://stackabuse.com/python-properties/
+  
   %li In keras-rl AbstractDQNAgent class, what is gamma used for?
   %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
   %li In keras-rl AbstractDQNAgent class, what is memory_interval used for?
