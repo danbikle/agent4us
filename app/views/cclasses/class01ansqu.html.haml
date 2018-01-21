@@ -606,7 +606,20 @@
   %li Much of compile() confuses me so I will ignore it for now.
 
 
+  %li
+    I see in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    that both load_weights() and save_weights() are implemented by class DQNAgent():
+  %li
 
+    .syntax
+      %pre
+        =render 'class01ansqu60'
+  %li The above methods are simple wrappers of Keras methods:
+  %li
+    %a(href='https://keras.io/models/about-keras-models/' target='x')
+      https://keras.io/models/about-keras-models/
+  
   
   %li In keras-rl AbstractDQNAgent class, what is gamma used for?
   %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
