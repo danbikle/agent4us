@@ -396,9 +396,16 @@
     %br/
     I see no comments in the class which is a disappointment
     %br/
-    but I can see that it is selecting an action from an ennumerable set.
+    but I can see that select_action() selects an action from an ennumerable set.
     %br/
-    And, the selection depends on a combination of randomness and probabilities:
+    And, the selection depends on a combination of q_values, randomness and probabilities.
+  %li
+    %a(href='https://www.google.com/search?q=In+Q-Learning+what+are+Q+values?' target='x')
+      https://www.google.com/search?q=In+Q-Learning+what+are+Q+values?
+  %li Answer: A Q-value quantifies "Quality" of a State-Action pair.
+  %li In the context of the above method, a high Q-value for an action means I should see more reward soon if I pick that action.
+  %li We can see from the syntax in select_action(), however, that more than q_values determines which action is selected.
+  %li Here is some documentation which illuminates how Matthias mixes randomness and probabilities:
   %li
     %a(href='https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.random.choice.html    ' target='x')
       https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.random.choice.html
@@ -407,17 +414,23 @@
     .syntax
       %pre
         =render 'class01ansqu38'
+  %li Again I asked Google a question:
+  %li
+    %a(href='https://www.google.com/search?q=In+keras-rl+what+is+BoltzmannQPolicy()' target='x')
+      https://www.google.com/search?q=In+keras-rl+what+is+BoltzmannQPolicy()?
+  
 
   %li The second link from that Google-search sent me to this page:
   %li
     %a(href='https://github.com/matthiasplappert/keras-rl/issues/18' target='x')
       https://github.com/matthiasplappert/keras-rl/issues/18
   %li
-    The above discussion highlights that this policy implements the idea that
+    The above discussion highlights that BoltzmannQPolicy policy implements the idea that
     %br/
     sometimes I should "explore" actions and sometimes I should "exploit" actions
     %br/
     known to be rewarding.
+  %li If I only want to "exploit" actions I will pick the action with the highest Q-value.
   %li David Silver discusses this idea near the end of this video:
   %li
     %a(href='https://youtu.be/2pWv7GOvuf0?t=4849' target='x')
