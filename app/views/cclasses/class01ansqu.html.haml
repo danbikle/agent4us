@@ -509,9 +509,12 @@
   
   %li What is the parameter nb_steps_warmup used for?
   %li
+    %a(href='https://github.com/matthiasplappert/keras-rl/issues/55#issuecomment-344257320' target='x')
+      https://github.com/matthiasplappert/keras-rl/issues/55#issuecomment-344257320
+  
+  %li
     According to
-    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/core.py' target='x')
-      core.py
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/core.py' target='x') core.py
     an agent requires I implement the following methods, how to do that?
   %li
     %ul
@@ -521,6 +524,16 @@
       %li load_weights  
       %li save_weights  
       %li layers        
+  %li
+    I see in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    that forward is implemnted by class DQNAgent(AbstractDQNAgent):
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu54'
+  %li In Deep Q-Learning, what is forward?
   %li In keras-rl AbstractDQNAgent class, what is gamma used for?
   %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
   %li In keras-rl AbstractDQNAgent class, what is memory_interval used for?
