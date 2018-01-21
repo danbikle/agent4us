@@ -527,13 +527,28 @@
   %li
     I see in
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
-    that forward is implemnted by class DQNAgent(AbstractDQNAgent):
+    that forward is implemented by class DQNAgent(AbstractDQNAgent):
   %li
 
     .syntax
       %pre
         =render 'class01ansqu54'
-  %li In Deep Q-Learning, what is forward?
+  %li When I study the above method I see that it does these steps:
+  %li
+    %ul
+      %li get state
+      %li compute_q_values(state)
+      %li ask: am I training?
+      %li return action
+  %li
+    %a(href='https://www.google.com/search?q=In+Deep+Q-Learning,+what+is+forward' target='x')
+      https://www.google.com/search?q=In+Deep+Q-Learning,+what+is+forward?
+  
+  %li I found a discussion of forward here:
+  %li
+    %a(href='https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html' target='x')
+      https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html
+  
   %li In keras-rl AbstractDQNAgent class, what is gamma used for?
   %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
   %li In keras-rl AbstractDQNAgent class, what is memory_interval used for?
