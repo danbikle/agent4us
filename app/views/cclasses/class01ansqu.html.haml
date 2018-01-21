@@ -523,7 +523,8 @@
       %li compile       
       %li load_weights  
       %li save_weights  
-      %li layers        
+      %li layers
+      
   %li
     I see in
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
@@ -533,6 +534,7 @@
     .syntax
       %pre
         =render 'class01ansqu54'
+        
   %li When I study the above method I see that it does these steps:
   %li
     %ul
@@ -548,6 +550,32 @@
   %li
     %a(href='https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html' target='x')
       https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html
+
+  %li
+    I see in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    that backward is implemented by class DQNAgent(AbstractDQNAgent):
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu56'
+
+  %li I found a discussion of backward here:
+  %li
+    %a(href='https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html' target='x')
+      https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/deep_q_learning.html
+  %li He says,
+  %li "Use back-propagation and mini-batches stochastic gradient descent to update the network."
+  %li What is the "network"?
+  %li It is: "A CNN which transforms state into outputs. Outputs are Q-values of actions."
+  %li The above URL has a nice image for this statement.
+  %li The image shows state as being images from a game and output as Q-values.
+  %li
+    I think his concept of network corresponds to the keras-model which was defined in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    and then fed to the DQNAgent() constructor.
+
   
   %li In keras-rl AbstractDQNAgent class, what is gamma used for?
   %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
