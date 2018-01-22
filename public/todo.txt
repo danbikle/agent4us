@@ -205,6 +205,29 @@ I should start work on class01
 ooooooooooo
 
 I should create a vbox:
-  rl2016_0115.ova
+  rl2018_0115.ova
   user0: a4
   
+oooooooo
+
+2018-01-22
+
+I list some ideas I thought up:
+
+for the stock-market agent, perhaps reward is a function rather than a deterministic calc.
+  Maybe I model it like this: myr = r(s1, a, s2)
+  s1 might be something like a tuple of features: (pctlag1, dow, slp4)
+  s2 will be same except shifted in time.
+  a might be an ennumerable like buy, sell or integer: buy 107 shares.
+
+I should write up a glossary
+
+I should write or find a simple Q-Learning demo which uses a table to hold
+Q-Value for each (s,a) tuple.
+
+I should add the Greg-LSTM demo to the keras lect.
+
+I should create an RL demo which demonstrates Kelly-crit.
+
+
+
