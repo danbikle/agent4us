@@ -701,8 +701,26 @@
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/docs/sources/core.md' target='x')
       https://github.com/matthiasplappert/keras-rl/blob/master/docs/sources/core.md
 
-  %li Why is test_policy = GreedyQPolicy()?
-  %li What is GreedyQPolicy()?
+  %li Q: What is GreedyQPolicy()?
+  %li
+    A:
+    In
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/policy.py' target='x')
+      policy.py
+    I see that select_action() in class GreedyQPolicy
+    %br/
+    will select the action with the largest q_value.
+    %br/
+    Of all the policies this has the least amount of syntax and is perhaps the fastest:
+    
+  %li
+
+    .syntax
+      %pre
+        =render 'class01ansqu64'
+        
+  %li Q: in DQNAgent, why is test_policy = GreedyQPolicy()?
+  %li A: Perhaps because it is good enough and fastest?
   %li Q: How to add custom-game to the Environment?
   %li
     A:
