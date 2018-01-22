@@ -727,7 +727,28 @@
     %a(href='https://github.com/matthiasplappert/keras-rl/issues/38' target='x')
       https://github.com/matthiasplappert/keras-rl/issues/38
   
-  
+
+
+  %li
+    Returning my attention to:
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    I study the call to dqn.fit():
+    
+  %li
+    
+    .syntax
+      %pre
+        %code.python dqn.fit(env, nb_steps=50000, visualize=True, verbose=2)
+  %li
+    I found the syntax which supports dqn.fit() in this file:
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/core.py' target='x') core.py
+  %li
+    It is a large method; it has over 180 lines of syntax.
+
+
+
+
+    
 %hr/    
 %p Plain text format:
 
