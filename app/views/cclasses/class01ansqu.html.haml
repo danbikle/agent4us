@@ -640,6 +640,7 @@
     %a(href='http://stackabuse.com/python-properties/' target='x')
       http://stackabuse.com/python-properties/
   %li
+    Q:
     %a(href='https://www.google.com/search?q=In+keras-rl+AbstractDQNAgent+class+what+is+gamma+used+for' target='x')
       https://www.google.com/search?q=In+keras-rl+AbstractDQNAgent+class,+what+is+gamma+used+for?
   %li
@@ -647,7 +648,17 @@
     %a(href='https://stackoverflow.com/questions/17336069/setting-gamma-and-lambda-in-reinforcement-learning' target='x')
       https://stackoverflow.com/questions/17336069/setting-gamma-and-lambda-in-reinforcement-learning
 
-  %li In keras-rl AbstractDQNAgent class, what is train_interval used for?
+  %li Q: In keras-rl AbstractDQNAgent class, what is train_interval used for?
+  %li
+    A: In
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    I found train_interval used in the backward() method.
+  %li I see that if train_interval is small, backward() works harder.
+  %li Q: Again, what is the purpose of backward()?
+  %li
+    A: We use backward() as part of the mechanism which trains
+    %br/
+    the Keras-model which predicts Q-values.
   %li In keras-rl AbstractDQNAgent class, what is memory_interval used for?
   %li In keras-rl AbstractDQNAgent class, what is delta_range used for?
   %li In keras-rl AbstractDQNAgent class, what is delta_clip used for?
