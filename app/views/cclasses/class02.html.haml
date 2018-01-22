@@ -2,8 +2,37 @@
 
 %p This class is under construction.
 
-%p The previous class focused on understanding some ideas behind %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py.
+%p
+  The previous class focused on understanding some ideas behind
+  %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py.
 
 %p This class should help you get a better understanding of openai-gym software.
 
+%p
+  Q: How does
+  %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+  connect to openai-gym?
+
+%ul
+  %li First, I see this line of syntax:
+  %li
+    .syntax
+      %pre
+        %code.python ENV_NAME = 'CartPole-v0'
+  %li Then I create an env-object:
+  %li
+    .syntax
+      %pre
+        %code.python env = gym.make(ENV_NAME)
+
+
+  %li Later env appears in the call to dqn.fit()
+
+  %li
+    .syntax
+      %pre
+        %code.python dqn.fit(env, nb_steps=50000, visualize=True, verbose=2)
+
+  
+  
 %hr/
