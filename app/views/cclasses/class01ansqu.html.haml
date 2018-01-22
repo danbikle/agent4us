@@ -773,7 +773,27 @@
         =render 'class01ansqu66'
           
     
+  %li
+    Next in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    I study the call to dqn.test():
+    
+  %li
 
+    .syntax
+      %pre
+        %code.python dqn.test(env, nb_episodes=5, visualize=True)
+
+  %li
+    I found the the syntax which supports the above call in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/core.py' target='x') core.py
+    
+  %li
+    Like fit(), the amount of syntax in the call is large: 130 lines of code.
+  %li
+    Essentially, it issues an action to respond to each observation and collects reward.
+  %li
+    When done, it returns a history of its activity.        
 
     
 %hr/    
