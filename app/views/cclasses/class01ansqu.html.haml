@@ -676,8 +676,22 @@
       %li reward
       %li terminal
       %li a boolean: self.training
-  %li In keras-rl DQNAgent class, what is delta_range used for?
-  %li In keras-rl DQNAgent class, what is delta_clip used for?
+  %li Q: In keras-rl DQNAgent class, what is delta_clip used for?
+  %li
+    A: In DQNAgent class, I see delta_clip inside a nested method:
+    %br/
+    clipped_masked_error() which is inside the compile() method of DQNAgent class.
+    %br/
+    It appears inside one line of syntax:
+  %li
+    .syntax
+      %pre
+        %code.python loss = huber_loss(y_true, y_pred, self.delta_clip)
+  %li
+    I am not sure what delta_clip does, I will ignore it for now.
+  %li Q: In keras-rl DQNAgent class, what is delta_range used for?
+  %li
+    A: delta_range is deprecated. Please use delta_clip instead, which takes a single scalar.  
   %li In keras-rl, what is Processor?
   %li Why does DQN expect a model to have a single output?
   %li Why is test_policy = GreedyQPolicy()?
