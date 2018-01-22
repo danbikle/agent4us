@@ -744,8 +744,35 @@
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/core.py' target='x') core.py
   %li
     It is a large method; it has over 180 lines of syntax.
+  %li
+    Although the method is large, its purpose is obvious.
+    It learns how to find the most reward.
 
+  %li
+    Next in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/examples/dqn_cartpole.py' target='x') dqn_cartpole.py
+    I study the call to dqn.save_weights():
+    
+    .syntax
+      %pre
+        %code.python dqn.save_weights('dqn_{}_weights.h5f'.format(ENV_NAME), overwrite=True)
+        
+  %li
+    When I saw the above call, it dawned on me that a side effect of dqn.fit()
+    %br/
+    is that an optimal fit for the Keras model is found while dqn.fit() is running.
+  
+  %li
+    I found the the syntax which supports the above call in
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py:
+    
+  %li
 
+    .syntax
+      %pre
+        =render 'class01ansqu66'
+          
+    
 
 
     
