@@ -603,7 +603,10 @@
   %li Q: What does compile() do in DQNAgent()?
   %li A: It creates target_model from model.
   %li A: Eventually it calls: trainable_model.compile() which is a Keras call.
-  %li Much of compile() confuses me so I will ignore it for now.
+  %li
+    In
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py,
+    much of compile() confuses me so I will ignore it for now.
 
 
   %li
@@ -631,7 +634,7 @@
       %pre
         =render 'class01ansqu62'
   %li It is a simple call which returns a list of layers in self.model.
-  %li The @property makes the call a "property-getter" of the layers property for the DQNAgent class.
+  %li The @property token makes the call a "property-getter" of the layers property for the DQNAgent class.
   %li
     If you do not understand this, just know that @property makes it easier for
     %br/
@@ -641,8 +644,8 @@
       http://stackabuse.com/python-properties/
   %li
     Q:
-    %a(href='https://www.google.com/search?q=In+keras-rl+AbstractDQNAgent+class+what+is+gamma+used+for' target='x')
-      https://www.google.com/search?q=In+keras-rl+AbstractDQNAgent+class,+what+is+gamma+used+for?
+    %a(href='https://www.google.com/search?q=In+keras-rl+DQNAgent+class+what+is+gamma+used+for' target='x')
+      https://www.google.com/search?q=In+keras-rl+DQNAgent+class,+what+is+gamma+used+for?
   %li
     A:
     %a(href='https://stackoverflow.com/questions/17336069/setting-gamma-and-lambda-in-reinforcement-learning' target='x')
