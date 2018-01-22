@@ -648,7 +648,7 @@
     %a(href='https://stackoverflow.com/questions/17336069/setting-gamma-and-lambda-in-reinforcement-learning' target='x')
       https://stackoverflow.com/questions/17336069/setting-gamma-and-lambda-in-reinforcement-learning
 
-  %li Q: In keras-rl AbstractDQNAgent class, what is train_interval used for?
+  %li Q: In keras-rl DQNAgent class, what is train_interval used for?
   %li
     A: In
     %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
@@ -659,9 +659,22 @@
     A: We use backward() as part of the mechanism which trains
     %br/
     the Keras-model which predicts Q-values.
-  %li In keras-rl AbstractDQNAgent class, what is memory_interval used for?
-  %li In keras-rl AbstractDQNAgent class, what is delta_range used for?
-  %li In keras-rl AbstractDQNAgent class, what is delta_clip used for?
+  %li Q: In keras-rl DQNAgent class, what is memory_interval used for?
+  %li
+    A: In
+    %a(href='https://github.com/matthiasplappert/keras-rl/blob/master/rl/agents/dqn.py' target='x') dqn.py
+    I see that if memory_interval is small, backward() works harder.
+  %li A: It works harder on this task: # Store most recent experience in memory.
+  %li
+    A: "experience" appears to be a tuple of
+    %ul
+      %li recent_observation
+      %li recent_action
+      %li reward
+      %li terminal
+      %li a boolean: self.training
+  %li In keras-rl DQNAgent class, what is delta_range used for?
+  %li In keras-rl DQNAgent class, what is delta_clip used for?
   %li In keras-rl, what is Processor?
   %li Why does DQN expect a model to have a single output?
   %li Why is test_policy = GreedyQPolicy()?
