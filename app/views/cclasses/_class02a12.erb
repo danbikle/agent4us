@@ -35,4 +35,74 @@ agent4@agent4:~/keras-rl/rl $ grep processor core.py
 agent4@agent4:~/keras-rl/rl $ 
 agent4@agent4:~/keras-rl/rl $ 
 agent4@agent4:~/keras-rl/rl $ 
+
+
+I found this syntax on line 454 of core.py:
+
+class Processor(object):
+    """Abstract base class for implementing processors.
+
+    A processor acts as a coupling mechanism between an `Agent` and its `Env`. This can
+    be necessary if your agent has different requirements with respect to the form of the
+    observations, actions, and rewards of the environment. By implementing a custom processor,
+    you can effectively translate between the two without having to change the underlaying
+    implementation of the agent or environment.
+
+    Do not use this abstract base class directly but instead use one of the concrete implementations
+    or write your own.
+    """
+
+    def process_step(self, observation, reward, done, info):
+        """Processes an entire step by applying the processor to the observation, reward, and info arguments.
+
+        # Arguments
+            observation (object): An observation as obtained by the environment.
+            reward (float): A reward as obtained by the environment.
+            done (boolean): `True` if the environment is in a terminal state, `False` otherwise.
+            info (dict): The debug info dictionary as obtained by the environment.
+
+        # Returns
+            The tupel (observation, reward, done, reward) with with all elements after being processed.
+        """
+
+Also, on line 529, it appears that Matthias makes it possible 
+for me to emulate objects from the gym API:
+
+
+# Note: the API of the `Env` and `Space` classes are taken from the OpenAI Gym implementation.
+# https://github.com/openai/gym/blob/master/gym/core.py
+
+
+class Env(object):
+    """The abstract environment class that is used by all agents. This class has the exact
+    same API that OpenAI Gym uses so that integrating with it is trivial. In contrast to the
+    OpenAI Gym implementation, this class only defines the abstract methods without any actual
+    implementation.
+    """
+    reward_range = (-np.inf, np.inf)
+    action_space = None
+    observation_space = None
+
+    def step(self, action):
+        """Run one timestep of the environment's dynamics.
+        Accepts an action and returns a tuple (observation, reward, done, info).
+
+        # Arguments
+            action (object): An action provided by the environment.
+
+        # Returns
+            observation (object): Agent's observation of the current environment.
+            reward (float) : Amount of reward returned after previous action.
+            done (boolean): Whether the episode has ended, in which case further step() calls will return undefined results.
+            info (dict): Contains auxiliary diagnostic information (helpful for debugging, and sometimes learning).
+        """
+        raise NotImplementedError()
+
+
+class Space(object):
+    """Abstract model for a space that is used for the state and action spaces. This class has the
+    exact same API that OpenAI Gym uses so that integrating with it is trivial.
+    """
+
+
 </code>
