@@ -1,0 +1,16 @@
+~/us/public/faq.txt
+
+q: In the Silver video he presents a concept he calls History which is a collection of (a1,s1,r1, ... a-t, s-t, r-t)
+   [ slide 18 of 46 , time 33:53 ] 
+   Also in def fit() of core.py I see a history object.
+   How are they related if at all?
+a: I think not. history looks like a Keras object:
+
+(Pdb) history
+<keras.callbacks.History object at 0x7f83f55a7198>
+
+
+q: in core.py method: fit() what is the purpose of self.processor?
+a:
+
+

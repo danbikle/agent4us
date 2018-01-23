@@ -1,0 +1,176 @@
+<code class='bash'>
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(110)fit()
+-> observation = None
+(Pdb)
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(111)fit()
+-> episode_reward = None
+(Pdb)
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(116)fit()
+-> if observation is None:  # start of a new episode
+(Pdb)
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(119)fit()
+-> episode_reward = 0.
+(Pdb)
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(123)fit()
+-> observation = deepcopy(env.reset())
+(Pdb)
+
+
+
+(Pdb) observation
+array([ 0.02078762, -0.01301236, -0.0209893 , -0.03935255])
+(Pdb) 
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(152)fit()
+-> assert episode_reward is not None
+(Pdb)
+
+(Pdb) episode_reward
+0.0
+(Pdb)
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(160)fit()
+-> action = self.forward(observation)
+(Pdb)
+
+
+
+(Pdb) action
+1
+(Pdb)
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(163)fit()
+-> reward = 0.
+(Pdb)
+
+
+Here is the section of the script I an no in:
+
+
+                # Run a single step.
+                callbacks.on_step_begin(episode_step)
+                # This is were all of the work happens. We first perceive and compute the action
+                # (forward step) and then use the reward to improve (backward step).
+                action = self.forward(observation)
+                if self.processor is not None:
+                    action = self.processor.process_action(action)
+                reward = 0.
+                accumulated_info = {}
+                done = False
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(166)fit()
+-> for _ in range(action_repetition):
+(Pdb)
+
+
+
+(Pdb) action_repetition
+1
+(Pdb)
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(168)fit()
+-> observation, r, done, info = env.step(action)
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(169)fit()
+-> observation = deepcopy(observation)
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(170)fit()
+-> if self.processor is not None:
+(Pdb)
+
+I typed r
+CAREFUL r is a pdb command
+startover
+
+(Pdb) myr = r
+(Pdb) myr
+1.0
+(Pdb)
+
+So it appears that observation and r appear inside the agent via env.step(action)
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(179)fit()
+-> reward += r
+(Pdb)
+
+And I see that fit() has a variable for cumulative reward.
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(185)fit()
+-> metrics = self.backward(reward, terminal=done)
+(Pdb)
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(186)fit()
+-> episode_reward += reward
+(Pdb)
+
+
+next it does this:
+
+
+                step_logs = {
+                    'action': action,
+                    'observation': observation,
+                    'reward': reward,
+                    'metrics': metrics,
+                    'episode': episode,
+                    'info': accumulated_info,
+                }
+
+
+
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(197)fit()
+-> episode_step += 1
+(Pdb)
+
+(Pdb) episode_step
+0
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(198)fit()
+-> self.step += 1
+(Pdb) self.step
+0
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(200)fit()
+-> if done:
+(Pdb) done
+False
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(115)fit()
+-> while self.step < nb_steps:
+(Pdb) 
+
+
+
+(Pdb) nb_steps
+50
+(Pdb)
+
+
+
+
+</code>
