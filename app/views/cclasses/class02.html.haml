@@ -84,6 +84,11 @@
       %pre
         %code.python observation, r, done, info = self.processor.process_step(observation, r, done, info)
 
+  %li I started a study of processor:
+  %li
+    .syntax
+      %pre
+        =render 'class02a12'
 
   %li According to the Silver video, the agent has a "state".
   %li Is that concept visible in any of the syntax which runs when I call dqn.fit() ?

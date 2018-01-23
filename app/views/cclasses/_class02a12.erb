@@ -1,0 +1,38 @@
+<code class='bash'>
+agent4@agent4:~/keras-rl/rl $ grep processor core.py 
+        processor (`Processor` instance): See [Processor](#processor) for details.
+    def __init__(self, processor=None):
+        self.processor = processor
+                    if self.processor is not None:
+                        observation = self.processor.process_observation(observation)
+                        if self.processor is not None:
+                            action = self.processor.process_action(action)
+                        if self.processor is not None:
+                            observation, reward, done, info = self.processor.process_step(observation, reward, done, info)
+                            if self.processor is not None:
+                                observation = self.processor.process_observation(observation)
+                if self.processor is not None:
+                    action = self.processor.process_action(action)
+                    if self.processor is not None:
+                        observation, r, done, info = self.processor.process_step(observation, r, done, info)
+            if self.processor is not None:
+                observation = self.processor.process_observation(observation)
+                if self.processor is not None:
+                    action = self.processor.process_action(action)
+                if self.processor is not None:
+                    observation, r, done, info = self.processor.process_step(observation, r, done, info)
+                    if self.processor is not None:
+                        observation = self.processor.process_observation(observation)
+                if self.processor is not None:
+                    action = self.processor.process_action(action)
+                    if self.processor is not None:
+                        observation, r, d, info = self.processor.process_step(observation, r, d, info)
+    """Abstract base class for implementing processors.
+    A processor acts as a coupling mechanism between an `Agent` and its `Env`. This can
+    observations, actions, and rewards of the environment. By implementing a custom processor,
+        """Processes an entire step by applying the processor to the observation, reward, and info arguments.
+        """The metrics of the processor, which will be reported during training.
+agent4@agent4:~/keras-rl/rl $ 
+agent4@agent4:~/keras-rl/rl $ 
+agent4@agent4:~/keras-rl/rl $ 
+</code>
