@@ -60,6 +60,31 @@
       %pre
         =render 'class02a10'
 
+  %li
+    After using the above interactions as a guide, I quickly found that the "hot" syntax
+    %br/
+    in dqn.fit() starts at line 116 and ends at line 200
+
+  %li
+    Also I can see that the main way to get observation and reward out of env
+    %br/
+    is with this call which is on line 168:
+  %li
+    .syntax
+      %pre
+        %code.python observation, r, done, info = env.step(action)
+  %li
+    It is interesting that Matthias added what appears to be a mechanism for the agent
+    %br/
+    to alter observation and reward via a method called "processor".
+
+  %li On line 170 I see processor in an if statement:
+  %li
+    .syntax
+      %pre
+        %code.python observation, r, done, info = self.processor.process_step(observation, r, done, info)
+
+
   %li According to the Silver video, the agent has a "state".
   %li Is that concept visible in any of the syntax which runs when I call dqn.fit() ?
   
