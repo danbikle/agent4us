@@ -34,6 +34,39 @@
 array([ 0.02078762, -0.01301236, -0.0209893 , -0.03935255])
 (Pdb) 
 
+Q: What do the above numbers mean?
+A: Refer to this url:
+   https://github.com/openai/gym/wiki/CartPole-v0#environment
+
+Here is some information from that page:
+<hr />
+<p>Observation</p><p>Type: Box(4)</p><table border='1'><thead><tr><th>Num</th><th>Observation</th><th>Min</th><th>Max</th></tr></thead><tbody>
+<tr>
+<td>0</td>
+<td>Cart Position</td>
+<td>-2.4</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Cart Velocity</td>
+<td>-Inf</td>
+<td>Inf</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pole Angle</td>
+<td>~ -41.8°</td>
+<td>~ 41.8°</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pole Velocity At Tip</td>
+<td>-Inf</td>
+<td>Inf</td></tr></tbody></table>
+<hr />
+
+
 
 
 > /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(152)fit()
@@ -116,7 +149,7 @@ So it appears that observation and r appear inside the agent via env.step(action
 -> reward += r
 (Pdb)
 
-And I see that fit() has a variable for cumulative reward.
+And I see above that fit() has a variable for cumulative reward.
 
 
 > /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(185)fit()
@@ -169,8 +202,4 @@ False
 (Pdb) nb_steps
 50
 (Pdb)
-
-
-
-
 </code>
