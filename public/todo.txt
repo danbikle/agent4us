@@ -229,5 +229,9 @@ I should add the Greg-LSTM demo to the keras lect.
 
 I should create an RL demo which demonstrates Kelly-crit.
 
-
+I should create a simple env-agent loop around a simple agent policy:
+  inputs: logr predictions, recent delta-r
+  h-params: how-recent for recent delta-r: x-days
+  if recent delta-r > 0, m% bankroll else n% bankroll
+  
 
