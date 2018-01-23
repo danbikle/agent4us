@@ -25,7 +25,8 @@
       %pre
         %code.python env = gym.make(ENV_NAME)
 
-
+  %li It seems probable that this env-object is used to connect the dqn-object to gym.
+  
   %li Later env appears in the call to dqn.fit()
 
   %li
@@ -41,6 +42,7 @@
       %pre
         %code.python dqn.test(env, nb_episodes=5, visualize=True)
 
+  %li to gain understanding about gym, I should study the interaction between env and dqn.
   
   
 %hr/
