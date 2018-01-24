@@ -1,5 +1,80 @@
 <code class='bash'>
+agent4@agent4:~/us $ cd ~
 
+
+
+agent4@agent4:~ $ cd keras-rl
+agent4@agent4:~/keras-rl $ 
+
+
+
+agent4@agent4:~/keras-rl $ python -m pdb examples/dqn_cartpole.py 
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(1)<module>()
+-> import numpy as np
+
+
+
+(Pdb) b 46
+Breakpoint 1 at /home/agent4/keras-rl/examples/dqn_cartpole.py:46
+
+
+
+(Pdb) c
+Using TensorFlow backend.
+[2018-01-23 17:05:22,075] Making new env: CartPole-v0
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 4)                 0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                80        
+_________________________________________________________________
+activation_1 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_2 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+activation_3 (Activation)    (None, 16)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 2)                 34        
+_________________________________________________________________
+activation_4 (Activation)    (None, 2)                 0         
+=================================================================
+Total params: 658
+Trainable params: 658
+Non-trainable params: 0
+_________________________________________________________________
+None
+> /home/agent4/keras-rl/examples/dqn_cartpole.py(46)<module>()
+-> dqn.fit(env, nb_steps=50, visualize=False, verbose=0)
+
+
+
+(Pdb) s
+--Call--
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(44)fit()
+-> def fit(self, env, nb_steps, action_repetition=1, callbacks=None, verbose=1,
+
+
+
+(Pdb) b 109
+Breakpoint 2 at /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py:109
+
+
+
+(Pdb) c
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(109)fit()
+-> self.step = 0
+
+
+
+(Pdb) n
+> /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(110)fit()
+-> observation = None
+(Pdb)
 
 > /home/agent4/anaconda3/lib/python3.6/site-packages/rl/core.py(110)fit()
 -> observation = None
