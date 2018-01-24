@@ -1,0 +1,46 @@
+<code class='python'>"""
+~/keras-rl/examples/env_step_demo.py
+
+This script should demo the env.step() method.
+
+# Ref:
+# https://github.com/openai/gym/wiki/CartPole-v0#environment
+
+Episode Termination
+
+    Pole Angle is more than ±12°
+    Cart Position is more than ±2.4 (center of the cart reaches the edge of the display)
+
+Observation tuple:
+Num     Observation     Min     Max
+0       Cart Position   -2.4    2.4
+1       Cart Velocity   -Inf    Inf
+2       Pole Angle      -41.8°  41.8°
+3       Poletip Velocity -Inf   Inf
+
+Demo:
+python ~/keras-rl/examples/env_step_demo.py
+"""
+
+import gym
+import numpy as np
+from copy import deepcopy
+
+ENV_NAME = 'CartPole-v0'
+
+env = gym.make(ENV_NAME)
+np.random.seed(123)
+env.seed(123)
+
+for _ in range(20):
+  action = env.action_space.sample()
+  observation, reward, done, info = env.step(action)
+  observation = deepcopy(observation)
+  print(action,observation, reward, done, info)
+  # Soon the env will encounter min/max cart-position or min/max angle:
+  # This is called "Episode Termination"
+  if done: # I need to start new episode:
+      env.reset()
+
+'bye'
+</code>
