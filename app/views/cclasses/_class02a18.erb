@@ -30,7 +30,13 @@ class MyEnv(gym.Env):
             done (boolean): whether the episode has ended, in which case further step() calls will return undefined results
             info (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
         """
-        return ({'cash':400.0,'shares':{'AAPL':100.0}},-100.0,True,{'actionwas':action})
+
+        cash_f         = 400.0
+        shares_d       = {'AAPL':100.0}
+        reward_ofstep  = -100.0
+        episode_isdone = True
+        info_d         = {'actionwas':action})
+        return ({'cash':cash_f,{'shares':shares_d},reward_ofstep,episode_isdone,info_d)
 
 
 
