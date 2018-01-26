@@ -30,11 +30,13 @@ class MyEnv(gym.Env):
             done (boolean): whether the episode has ended, in which case further step() calls will return undefined results
             info (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
         """
-        return ("hello",1.0,True,{})
+        return ({'cash':400.0,'shares':{'AAPL':100.0}},-100.0,True,{'actionwas':action})
 
 
 
 sm_env = MyEnv()
-step_out_tpl = sm_env.step(0)
+step_out_tpl = sm_env.step({'shares':1, 'tkr':'AAPL'})
+print('step_out_tpl:')
+print(step_out_tpl)
 print('bye')
 </code>
