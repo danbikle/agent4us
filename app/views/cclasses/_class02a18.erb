@@ -1,0 +1,40 @@
+<code class='bash'>
+"""
+dan10.py
+
+This script should create a new gym env.
+
+Demo:
+python dan.py
+"""
+
+import gym
+
+class MyEnv(gym.Env):
+    """This class should be special."""
+    def __init__(self):
+        True
+    def step(self, action):
+        """Run one timestep of the environment's dynamics. When end of
+        episode is reached, you are responsible for calling `reset()`
+        to reset this environment's state.
+    
+        Accepts an action and returns a tuple (observation, reward, done, info).
+    
+        Args:
+            action (object): an action provided by the environment
+    
+        Returns:
+            observation (object): agent's observation of the current environment
+            reward (float) : amount of reward returned after previous action
+            done (boolean): whether the episode has ended, in which case further step() calls will return undefined results
+            info (dict): contains auxiliary diagnostic information (helpful for debugging, and sometimes learning)
+        """
+        return ("hello",1.0,True,{})
+
+
+
+sm_env = MyEnv()
+step_out_tpl = sm_env.step(0)
+print('bye')
+</code>
